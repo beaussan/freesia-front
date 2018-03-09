@@ -26,6 +26,14 @@ export class FuseNavigationModel implements FuseNavigationModelInterface
                             'bg'   : '#F44336',
                             'fg'   : '#FFFFFF'
                         }
+                    },
+                    {
+                        'id'   : 'login',
+                        'title': 'Login',
+                        'translate': 'NAV.SAMPLE.TITLE',
+                        'type' : 'item',
+                        'icon' : 'check',
+                        'url'  : '/login'
                     }
                 ]
             }

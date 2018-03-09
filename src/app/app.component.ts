@@ -7,6 +7,8 @@ import { FuseNavigationService } from './core/components/navigation/navigation.s
 import { FuseNavigationModel } from './navigation/navigation.model';
 import { locale as navigationEnglish } from './navigation/i18n/en';
 import { locale as navigationFrench } from './navigation/i18n/fr';
+import { locale as generalFrench } from './i18n/fr';
+import { locale as generalEnglish } from './i18n/en';
 
 @Component({
     selector   : 'fuse-root',
@@ -36,5 +38,6 @@ export class AppComponent
 
         // Set the navigation translations
         this.translationLoader.loadTranslations(navigationEnglish, navigationFrench);
+        this.translationLoader.loadTranslations(generalEnglish, generalFrench);
     }
 }
