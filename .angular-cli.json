@@ -1,7 +1,7 @@
 {
     "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
     "project": {
-        "name": "fuse2"
+        "name": "freesia"
     },
     "apps": [
         {
@@ -9,7 +9,7 @@
             "outDir": "dist",
             "assets": [
                 "assets",
-		"_redirects",
+		            "_redirects",
                 "favicon.ico"
             ],
             "index": "index.html",
@@ -40,25 +40,19 @@
         {
             "project": "src/tsconfig.app.json",
             "exclude": [
-                "**/node_modules/**",
-                "**/src/app/fuse-fake-db/**/*",
-                "**/src/assets/angular-material-examples/**/*"
+                "**/node_modules/**"
             ]
         },
         {
             "project": "src/tsconfig.spec.json",
             "exclude": [
-                "**/node_modules/**",
-                "**/src/app/fuse-fake-db/**/*",
-                "**/src/assets/angular-material-examples/**/*"
+                "**/node_modules/**"
             ]
         },
         {
             "project": "e2e/tsconfig.e2e.json",
             "exclude": [
-                "**/node_modules/**",
-                "**/src/app/fuse-fake-db/**/*",
-                "**/src/assets/angular-material-examples/**/*"
+                "**/node_modules/**"
             ]
         }
     ],

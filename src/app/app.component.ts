@@ -1,14 +1,12 @@
 import { Component } from '@angular/core';
-import { FuseSplashScreenService } from './core/services/splash-screen.service';
 import { TranslateService } from '@ngx-translate/core';
-import { FuseTranslationLoaderService } from './core/services/translation-loader.service';
 
-import { FuseNavigationService } from './core/components/navigation/navigation.service';
-import { FuseNavigationModel } from './navigation/navigation.model';
+import { FuseSplashScreenService } from '@fuse/services/splash-screen.service';
+import { FuseTranslationLoaderService } from '@fuse/services/translation-loader.service';
+import { FuseNavigationService } from '@fuse/components/navigation/navigation.service';
+
 import { locale as navigationEnglish } from './navigation/i18n/en';
 import { locale as navigationFrench } from './navigation/i18n/fr';
-import { locale as generalFrench } from './i18n/fr';
-import { locale as generalEnglish } from './i18n/en';
 
 @Component({
     selector   : 'fuse-root',
@@ -18,10 +16,10 @@ import { locale as generalEnglish } from './i18n/en';
 export class AppComponent
 {
     constructor(
+        private translate: TranslateService,
         private fuseNavigationService: FuseNavigationService,
         private fuseSplashScreen: FuseSplashScreenService,
-        private translate: TranslateService,
-        private translationLoader: FuseTranslationLoaderService
+        private fuseTranslationLoader: FuseTranslationLoaderService
     )
     {
         // Add languages
@@ -30,14 +28,10 @@ export class AppComponent
         // Set the default language
         this.translate.setDefaultLang('en');
 
+        // Set the navigation translations
+        this.fuseTranslationLoader.loadTranslations(navigationEnglish, navigationFrench);
+
         // Use a language
         this.translate.use('en');
-
-        // Set the navigation model
-        this.fuseNavigationService.setNavigationModel(new FuseNavigationModel());
-
-        // Set the navigation translations
-        this.translationLoader.loadTranslations(navigationEnglish, navigationFrench);
-        this.translationLoader.loadTranslations(generalEnglish, generalFrench);
     }
 }

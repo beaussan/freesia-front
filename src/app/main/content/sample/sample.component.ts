@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { FuseTranslationLoaderService } from '../../../core/services/translation-loader.service';
+
+import { FuseTranslationLoaderService } from '@fuse/services/translation-loader.service';
 
 import { locale as english } from './i18n/en';
 import { locale as french } from './i18n/fr';
@@ -11,8 +12,8 @@ import { locale as french } from './i18n/fr';
 })
 export class FuseSampleComponent
 {
-    constructor(private translationLoader: FuseTranslationLoaderService)
+    constructor(private fuseTranslationLoader: FuseTranslationLoaderService)
     {
-        this.translationLoader.loadTranslations(english, french);
+        this.fuseTranslationLoader.loadTranslations(english, french);
     }
 }
