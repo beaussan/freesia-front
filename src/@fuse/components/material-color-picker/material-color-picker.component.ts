@@ -8,7 +8,7 @@ import { MatColors } from '@fuse/mat-colors';
     templateUrl  : './material-color-picker.component.html',
     styleUrls    : ['./material-color-picker.component.scss'],
     animations   : fuseAnimations,
-    encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None,
 })
 export class FuseMaterialColorPickerComponent implements OnChanges
 {
@@ -154,7 +154,7 @@ export class FuseMaterialColorPickerComponent implements OnChanges
                 hue    : this.selectedHue,
                 class  : this.selectedClass,
                 bg     : this.selectedBg,
-                fg     : this.selectedFg
+                fg     : this.selectedFg,
             };
 
             this.selectedPaletteChange.emit(this.selectedPalette);

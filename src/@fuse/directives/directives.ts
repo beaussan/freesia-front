@@ -9,15 +9,15 @@ import { FuseMatSidenavHelperDirective, FuseMatSidenavTogglerDirective } from '@
         FuseIfOnDomDirective,
         FuseMatSidenavHelperDirective,
         FuseMatSidenavTogglerDirective,
-        FusePerfectScrollbarDirective
+        FusePerfectScrollbarDirective,
     ],
     imports     : [],
     exports     : [
         FuseIfOnDomDirective,
         FuseMatSidenavHelperDirective,
         FuseMatSidenavTogglerDirective,
-        FusePerfectScrollbarDirective
-    ]
+        FusePerfectScrollbarDirective,
+    ],
 })
 export class FuseDirectivesModule
 {

@@ -4,10 +4,10 @@ import { FuseCountdownComponent } from '@fuse/components/countdown/countdown.com
 
 @NgModule({
     declarations: [
-        FuseCountdownComponent
+        FuseCountdownComponent,
     ],
     exports: [
-        FuseCountdownComponent
+        FuseCountdownComponent,
     ],
 })
 export class FuseCountdownModule

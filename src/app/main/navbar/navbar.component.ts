@@ -11,7 +11,7 @@ import { FuseNavigationService } from '@fuse/components/navigation/navigation.se
     selector     : 'fuse-navbar',
     templateUrl  : './navbar.component.html',
     styleUrls    : ['./navbar.component.scss'],
-    encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None,
 })
 export class FuseNavbarComponent implements OnDestroy
 {
@@ -41,7 +41,7 @@ export class FuseNavbarComponent implements OnDestroy
 
     constructor(
         private sidebarService: FuseSidebarService,
-        private navigationService: FuseNavigationService
+        private navigationService: FuseNavigationService,
     )
     {
         // Navigation data

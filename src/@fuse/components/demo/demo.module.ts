@@ -9,18 +9,18 @@ import { FuseDemoSidenavComponent } from './demo-sidenav/demo-sidenav.component'
 @NgModule({
     declarations: [
         FuseDemoContentComponent,
-        FuseDemoSidenavComponent
+        FuseDemoSidenavComponent,
     ],
     imports     : [
         RouterModule,
 
         MatDividerModule,
-        MatListModule
+        MatListModule,
     ],
     exports     : [
         FuseDemoContentComponent,
-        FuseDemoSidenavComponent
-    ]
+        FuseDemoSidenavComponent,
+    ],
 })
 export class FuseDemoModule
 {

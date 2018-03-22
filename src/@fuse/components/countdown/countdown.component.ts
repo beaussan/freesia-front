@@ -7,7 +7,7 @@ import * as moment from 'moment';
 @Component({
     selector   : 'fuse-countdown',
     templateUrl: './countdown.component.html',
-    styleUrls  : ['./countdown.component.scss']
+    styleUrls  : ['./countdown.component.scss'],
 })
 export class FuseCountdownComponent implements OnInit
 {
@@ -20,7 +20,7 @@ export class FuseCountdownComponent implements OnInit
             days   : '',
             hours  : '',
             minutes: '',
-            seconds: ''
+            seconds: '',
         };
     }
 
@@ -44,7 +44,7 @@ export class FuseCountdownComponent implements OnInit
                               days   : timeLeft.asDays().toFixed(0),
                               hours  : timeLeft.hours(),
                               minutes: timeLeft.minutes(),
-                              seconds: timeLeft.seconds()
+                              seconds: timeLeft.seconds(),
                           };
                       });
 

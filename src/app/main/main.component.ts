@@ -9,7 +9,7 @@ import { FuseConfigService } from '@fuse/services/config.service';
     selector     : 'fuse-main',
     templateUrl  : './main.component.html',
     styleUrls    : ['./main.component.scss'],
-    encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None,
 })
 export class FuseMainComponent implements OnDestroy
 {
@@ -22,7 +22,7 @@ export class FuseMainComponent implements OnDestroy
         private _elementRef: ElementRef,
         private fuseConfig: FuseConfigService,
         private platform: Platform,
-        @Inject(DOCUMENT) private document: any
+        @Inject(DOCUMENT) private document: any,
     )
     {
         this.onConfigChanged =
@@ -31,7 +31,7 @@ export class FuseMainComponent implements OnDestroy
                     (newSettings) => {
                         this.fuseSettings = newSettings;
                         this.layoutMode = this.fuseSettings.layout.mode;
-                    }
+                    },
                 );
 
         if ( this.platform.ANDROID || this.platform.IOS )

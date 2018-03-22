@@ -12,7 +12,7 @@ export class FuseSplashScreenService
     constructor(
         private animationBuilder: AnimationBuilder,
         @Inject(DOCUMENT) private document: any,
-        private router: Router
+        private router: Router,
     )
     {
         // Get the splash screen element
@@ -33,7 +33,7 @@ export class FuseSplashScreenService
                             hideOnLoad.unsubscribe();
                         }, 0);
                     }
-                }
+                },
             );
         }
     }
@@ -45,9 +45,9 @@ export class FuseSplashScreenService
                 .build([
                     style({
                         opacity: '0',
-                        zIndex : '99999'
+                        zIndex : '99999',
                     }),
-                    animate('400ms ease', style({opacity: '1'}))
+                    animate('400ms ease', style({opacity: '1'})),
                 ]).create(this.splashScreenEl);
 
         setTimeout(() => {
@@ -63,8 +63,8 @@ export class FuseSplashScreenService
                     style({opacity: '1'}),
                     animate('400ms ease', style({
                         opacity: '0',
-                        zIndex : '-10'
-                    }))
+                        zIndex : '-10',
+                    })),
                 ]).create(this.splashScreenEl);
 
         setTimeout(() => {

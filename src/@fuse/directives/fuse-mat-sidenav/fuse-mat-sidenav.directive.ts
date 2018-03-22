@@ -7,7 +7,7 @@ import { FuseMatchMediaService } from '@fuse/services/match-media.service';
 import { FuseMatSidenavHelperService } from '@fuse/directives/fuse-mat-sidenav/fuse-mat-sidenav.service';
 
 @Directive({
-    selector: '[fuseMatSidenavHelper]'
+    selector: '[fuseMatSidenavHelper]',
 })
 export class FuseMatSidenavHelperDirective implements OnInit, OnDestroy
 {
@@ -20,7 +20,7 @@ export class FuseMatSidenavHelperDirective implements OnInit, OnDestroy
         private fuseMatSidenavService: FuseMatSidenavHelperService,
         private fuseMatchMedia: FuseMatchMediaService,
         private observableMedia: ObservableMedia,
-        private matSidenav: MatSidenav
+        private matSidenav: MatSidenav,
     )
     {
     }
@@ -65,7 +65,7 @@ export class FuseMatSidenavHelperDirective implements OnInit, OnDestroy
 }
 
 @Directive({
-    selector: '[fuseMatSidenavToggler]'
+    selector: '[fuseMatSidenavToggler]',
 })
 export class FuseMatSidenavTogglerDirective
 {

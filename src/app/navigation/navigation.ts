@@ -16,9 +16,17 @@ export const navigation = [
                     'title': 25,
                     'translate': 'NAV.SAMPLE.BADGE',
                     'bg'   : '#F44336',
-                    'fg'   : '#FFFFFF'
-                }
-            }
-        ]
-    }
+                    'fg'   : '#FFFFFF',
+                },
+            },
+          {
+            'id'   : 'login',
+            'title': 'Login',
+            'translate': 'NAV.SAMPLE.LOGIN',
+            'type' : 'item',
+            'icon' : 'delete',
+            'url'  : '/login',
+          },
+        ],
+    },
 ];

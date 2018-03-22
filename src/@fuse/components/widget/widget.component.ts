@@ -5,7 +5,7 @@ import { FuseWidgetToggleDirective } from './widget-toggle.directive';
     selector     : 'fuse-widget',
     templateUrl  : './widget.component.html',
     styleUrls    : ['./widget.component.scss'],
-    encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None,
 })
 
 export class FuseWidgetComponent implements AfterContentInit

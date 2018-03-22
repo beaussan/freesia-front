@@ -11,7 +11,7 @@ import { FuseConfigService } from '@fuse/services/config.service';
     selector     : 'fuse-sidebar',
     templateUrl  : './sidebar.component.html',
     styleUrls    : ['./sidebar.component.scss'],
-    encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None,
 })
 export class FuseSidebarComponent implements OnInit, OnDestroy
 {
@@ -122,7 +122,7 @@ export class FuseSidebarComponent implements OnInit, OnDestroy
         private observableMedia: ObservableMedia,
         private fuseConfigService: FuseConfigService,
         private fuseSidebarService: FuseSidebarService,
-        private fuseMatchMediaService: FuseMatchMediaService
+        private fuseMatchMediaService: FuseMatchMediaService,
     )
     {
         // Set the defaults
@@ -394,7 +394,7 @@ export class FuseSidebarComponent implements OnInit, OnDestroy
         this._player =
             this.animationBuilder
                 .build([
-                    animate('300ms ease', style({opacity: 1}))
+                    animate('300ms ease', style({opacity: 1})),
                 ]).create(this._backdrop);
 
         // Play the animation
@@ -403,7 +403,7 @@ export class FuseSidebarComponent implements OnInit, OnDestroy
         // Add an event listener to the overlay
         this._backdrop.addEventListener('click', () => {
                 this.close();
-            }
+            },
         );
     }
 
@@ -421,7 +421,7 @@ export class FuseSidebarComponent implements OnInit, OnDestroy
         this._player =
             this.animationBuilder
                 .build([
-                    animate('300ms ease', style({opacity: 0}))
+                    animate('300ms ease', style({opacity: 0})),
                 ]).create(this._backdrop);
 
         // Play the animation

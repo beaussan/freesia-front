@@ -6,11 +6,11 @@ import { FuseWidgetToggleDirective } from './widget-toggle.directive';
 @NgModule({
     declarations: [
         FuseWidgetComponent,
-        FuseWidgetToggleDirective
+        FuseWidgetToggleDirective,
     ],
     exports     : [
         FuseWidgetComponent,
-        FuseWidgetToggleDirective
+        FuseWidgetToggleDirective,
     ],
 })
 export class FuseWidgetModule

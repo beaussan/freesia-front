@@ -12,7 +12,7 @@ import { navigation } from 'app/navigation/navigation';
     selector   : 'fuse-theme-options',
     templateUrl: './theme-options.component.html',
     styleUrls  : ['./theme-options.component.scss'],
-    animations : fuseAnimations
+    animations : fuseAnimations,
 })
 export class FuseThemeOptionsComponent implements OnInit, OnDestroy
 {
@@ -31,7 +31,7 @@ export class FuseThemeOptionsComponent implements OnInit, OnDestroy
         private animationBuilder: AnimationBuilder,
         private fuseConfig: FuseConfigService,
         private navigationService: FuseNavigationService,
-        private renderer: Renderer2
+        private renderer: Renderer2,
     )
     {
         this.barClosed = true;
@@ -41,7 +41,7 @@ export class FuseThemeOptionsComponent implements OnInit, OnDestroy
                 .subscribe(
                     (newConfig) => {
                         this.config = newConfig;
-                    }
+                    },
                 );
 
         // Get the nav model and add customize nav item
@@ -60,9 +60,9 @@ export class FuseThemeOptionsComponent implements OnInit, OnDestroy
                     'icon'    : 'settings',
                     'function': () => {
                         this.openBar();
-                    }
-                }
-            ]
+                    },
+                },
+            ],
         });
     }
 
@@ -89,7 +89,7 @@ export class FuseThemeOptionsComponent implements OnInit, OnDestroy
             this.animationBuilder
                 .build([
                     style({transform: 'translate3d(0,0,0)'}),
-                    animate('400ms ease', style({transform: 'translate3d(100%,0,0)'}))
+                    animate('400ms ease', style({transform: 'translate3d(100%,0,0)'})),
                 ]).create(this.panel.nativeElement);
 
         this.player.play();
@@ -107,7 +107,7 @@ export class FuseThemeOptionsComponent implements OnInit, OnDestroy
             this.animationBuilder
                 .build([
                     style({transform: 'translate3d(100%,0,0)'}),
-                    animate('400ms ease', style({transform: 'translate3d(0,0,0)'}))
+                    animate('400ms ease', style({transform: 'translate3d(0,0,0)'})),
                 ]).create(this.panel.nativeElement);
 
         this.player.play();

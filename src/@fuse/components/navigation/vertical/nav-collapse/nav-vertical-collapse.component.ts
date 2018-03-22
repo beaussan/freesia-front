@@ -7,7 +7,7 @@ import { fuseAnimations } from '../../../../animations/index';
     selector   : 'fuse-nav-vertical-collapse',
     templateUrl: './nav-vertical-collapse.component.html',
     styleUrls  : ['./nav-vertical-collapse.component.scss'],
-    animations : fuseAnimations
+    animations : fuseAnimations,
 })
 export class FuseNavVerticalCollapseComponent implements OnInit
 {
@@ -17,7 +17,7 @@ export class FuseNavVerticalCollapseComponent implements OnInit
 
     constructor(
         private navigationService: FuseNavigationService,
-        private router: Router
+        private router: Router,
     )
     {
         // Listen for route changes
@@ -36,7 +36,7 @@ export class FuseNavVerticalCollapseComponent implements OnInit
                         this.collapse();
                     }
                 }
-            }
+            },
         );
 
         // Listen for collapsing of any navigation item
@@ -65,7 +65,7 @@ export class FuseNavVerticalCollapseComponent implements OnInit
                             this.collapse();
                         }
                     }
-                }
+                },
             );
     }
 

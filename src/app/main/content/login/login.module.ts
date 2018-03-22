@@ -9,14 +9,14 @@ import { FuseLoginComponent } from './login.component';
 
 const routes = [
     {
-        path     : 'auth/login',
-        component: FuseLoginComponent
-    }
+        path     : 'login',
+        component: FuseLoginComponent,
+    },
 ];
 
 @NgModule({
     declarations: [
-        FuseLoginComponent
+        FuseLoginComponent,
     ],
     imports     : [
         RouterModule.forChild(routes),
@@ -26,8 +26,8 @@ const routes = [
         MatFormFieldModule,
         MatInputModule,
 
-        FuseSharedModule
-    ]
+        FuseSharedModule,
+    ],
 })
 export class LoginModule
 {

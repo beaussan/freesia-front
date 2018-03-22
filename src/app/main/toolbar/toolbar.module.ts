@@ -9,7 +9,7 @@ import { FuseSearchBarModule, FuseShortcutsModule } from '@fuse/components';
 
 @NgModule({
     declarations: [
-        FuseToolbarComponent
+        FuseToolbarComponent,
     ],
     imports     : [
         RouterModule,
@@ -22,11 +22,11 @@ import { FuseSearchBarModule, FuseShortcutsModule } from '@fuse/components';
 
         FuseSharedModule,
         FuseSearchBarModule,
-        FuseShortcutsModule
+        FuseShortcutsModule,
     ],
     exports     : [
-        FuseToolbarComponent
-    ]
+        FuseToolbarComponent,
+    ],
 })
 export class FuseToolbarModule
 {

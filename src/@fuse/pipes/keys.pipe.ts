@@ -13,7 +13,7 @@ export class KeysPipe implements PipeTransform
             {
                 keys.push({
                     key  : key,
-                    value: value[key]
+                    value: value[key],
                 });
             }
         }

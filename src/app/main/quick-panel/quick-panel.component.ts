@@ -4,7 +4,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
     selector     : 'fuse-quick-panel',
     templateUrl  : './quick-panel.component.html',
     styleUrls    : ['./quick-panel.component.scss'],
-    encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None,
 })
 export class FuseQuickPanelComponent implements OnInit
 {
@@ -19,7 +19,7 @@ export class FuseQuickPanelComponent implements OnInit
         this.settings = {
             notify: true,
             cloud : false,
-            retro : true
+            retro : true,
         };
     }
 

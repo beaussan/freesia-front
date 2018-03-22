@@ -10,7 +10,7 @@ import { FuseNavigationModule } from '@fuse/components';
 
 @NgModule({
     declarations: [
-        FuseNavbarComponent
+        FuseNavbarComponent,
     ],
     imports     : [
         RouterModule,
@@ -19,11 +19,11 @@ import { FuseNavigationModule } from '@fuse/components';
         MatIconModule,
 
         FuseSharedModule,
-        FuseNavigationModule
+        FuseNavigationModule,
     ],
     exports     : [
-        FuseNavbarComponent
-    ]
+        FuseNavbarComponent,
+    ],
 })
 export class FuseNavbarModule
 {

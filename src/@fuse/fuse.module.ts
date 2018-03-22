@@ -19,8 +19,8 @@ import { FuseTranslationLoaderService } from '@fuse/services/translation-loader.
         FuseNavigationService,
         FuseSidebarService,
         FuseSplashScreenService,
-        FuseTranslationLoaderService
-    ]
+        FuseTranslationLoaderService,
+    ],
 })
 export class FuseModule
 {
@@ -39,9 +39,9 @@ export class FuseModule
             providers: [
                 {
                     provide : FUSE_CONFIG,
-                    useValue: config
-                }
-            ]
+                    useValue: config,
+                },
+            ],
         };
     }
 }

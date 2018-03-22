@@ -7,7 +7,7 @@ import './prism-languages';
 @Component({
     selector : 'fuse-highlight',
     template : ' ',
-    styleUrls: ['./highlight.component.scss']
+    styleUrls: ['./highlight.component.scss'],
 })
 export class FuseHighlightComponent implements OnInit
 {
@@ -17,7 +17,7 @@ export class FuseHighlightComponent implements OnInit
 
     constructor(
         private elementRef: ElementRef,
-        private http: HttpClient
+        private http: HttpClient,
     )
     {
     }

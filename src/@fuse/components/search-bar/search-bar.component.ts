@@ -6,7 +6,7 @@ import { FuseConfigService } from '@fuse/services/config.service';
 @Component({
     selector   : 'fuse-search-bar',
     templateUrl: './search-bar.component.html',
-    styleUrls  : ['./search-bar.component.scss']
+    styleUrls  : ['./search-bar.component.scss'],
 })
 export class FuseSearchBarComponent
 {
@@ -16,7 +16,7 @@ export class FuseSearchBarComponent
     onConfigChanged: Subscription;
 
     constructor(
-        private fuseConfig: FuseConfigService
+        private fuseConfig: FuseConfigService,
     )
     {
         this.collapsed = true;
@@ -25,7 +25,7 @@ export class FuseSearchBarComponent
                 .subscribe(
                     (newSettings) => {
                         this.toolbarColor = newSettings.colorClasses.toolbar;
-                    }
+                    },
                 );
     }
 

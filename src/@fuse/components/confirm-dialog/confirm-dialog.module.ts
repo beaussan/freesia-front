@@ -5,14 +5,14 @@ import { FuseConfirmDialogComponent } from '@fuse/components/confirm-dialog/conf
 
 @NgModule({
     declarations: [
-        FuseConfirmDialogComponent
+        FuseConfirmDialogComponent,
     ],
     imports: [
         MatDialogModule,
-        MatButtonModule
+        MatButtonModule,
     ],
     entryComponents: [
-        FuseConfirmDialogComponent
+        FuseConfirmDialogComponent,
     ],
 })
 export class FuseConfirmDialogModule

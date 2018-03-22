@@ -12,7 +12,7 @@ import { FuseConfigService } from '@fuse/services/config.service';
     selector   : 'fuse-content',
     templateUrl: './content.component.html',
     styleUrls  : ['./content.component.scss'],
-    animations : fuseAnimations
+    animations : fuseAnimations,
 })
 export class FuseContentComponent implements OnDestroy
 {
@@ -28,7 +28,7 @@ export class FuseContentComponent implements OnDestroy
     constructor(
         private router: Router,
         private activatedRoute: ActivatedRoute,
-        private fuseConfig: FuseConfigService
+        private fuseConfig: FuseConfigService,
     )
     {
         this.router.events
@@ -60,7 +60,7 @@ export class FuseContentComponent implements OnDestroy
                 .subscribe(
                     (newSettings) => {
                         this.fuseSettings = newSettings;
-                    }
+                    },
                 );
     }
 

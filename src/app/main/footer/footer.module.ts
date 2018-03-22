@@ -8,7 +8,7 @@ import { FuseFooterComponent } from 'app/main/footer/footer.component';
 
 @NgModule({
     declarations: [
-        FuseFooterComponent
+        FuseFooterComponent,
     ],
     imports     : [
         RouterModule,
@@ -17,11 +17,11 @@ import { FuseFooterComponent } from 'app/main/footer/footer.component';
         MatIconModule,
         MatToolbarModule,
 
-        FuseSharedModule
+        FuseSharedModule,
     ],
     exports     : [
-        FuseFooterComponent
-    ]
+        FuseFooterComponent,
+    ],
 })
 export class FuseFooterModule
 {

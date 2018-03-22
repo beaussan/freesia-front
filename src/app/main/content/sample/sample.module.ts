@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { TranslateModule } from '@ngx-translate/core';
-
 import { FuseSharedModule } from '@fuse/shared.module';
 
 import { FuseSampleComponent } from './sample.component';
@@ -10,24 +8,22 @@ import { FuseSampleComponent } from './sample.component';
 const routes = [
     {
         path     : 'sample',
-        component: FuseSampleComponent
-    }
+        component: FuseSampleComponent,
+    },
 ];
 
 @NgModule({
     declarations: [
-        FuseSampleComponent
+        FuseSampleComponent,
     ],
     imports     : [
         RouterModule.forChild(routes),
 
-        TranslateModule,
-
-        FuseSharedModule
+        FuseSharedModule,
     ],
     exports     : [
-        FuseSampleComponent
-    ]
+        FuseSampleComponent,
+    ],
 })
 
 export class FuseSampleModule

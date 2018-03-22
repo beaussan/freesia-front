@@ -28,7 +28,7 @@ export class FuseNavigationService
                     title: navItem.title,
                     type : navItem.type,
                     icon : navItem.icon || false,
-                    url  : navItem.url
+                    url  : navItem.url,
                 });
 
                 continue;

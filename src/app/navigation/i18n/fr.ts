@@ -5,8 +5,8 @@ export const locale = {
                 'APPLICATIONS': 'Applications',
                   'SAMPLE'        : {
                       'TITLE': 'Example',
-                        'BADGE': '25'
-                  }
-            }
-      }
+                        'BADGE': '25',
+                  },
+            },
+      },
 };

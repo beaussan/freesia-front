@@ -1,7 +1,7 @@
 import { AfterContentChecked, Directive, ElementRef, TemplateRef, ViewContainerRef } from '@angular/core';
 
 @Directive({
-    selector: '[fuseIfOnDom]'
+    selector: '[fuseIfOnDom]',
 })
 export class FuseIfOnDomDirective implements AfterContentChecked
 {
@@ -10,7 +10,7 @@ export class FuseIfOnDomDirective implements AfterContentChecked
     constructor(
         private templateRef: TemplateRef<any>,
         private viewContainer: ViewContainerRef,
-        private element: ElementRef
+        private element: ElementRef,
     )
     {
     }

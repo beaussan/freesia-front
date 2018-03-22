@@ -12,7 +12,7 @@ import { navigation } from 'app/navigation/navigation';
 @Component({
     selector   : 'fuse-shortcuts',
     templateUrl: './shortcuts.component.html',
-    styleUrls  : ['./shortcuts.component.scss']
+    styleUrls  : ['./shortcuts.component.scss'],
 })
 export class FuseShortcutsComponent implements OnInit, OnDestroy
 {
@@ -34,7 +34,7 @@ export class FuseShortcutsComponent implements OnInit, OnDestroy
         private fuseMatchMedia: FuseMatchMediaService,
         private fuseNavigationService: FuseNavigationService,
         private fuseConfig: FuseConfigService,
-        private cookieService: CookieService
+        private cookieService: CookieService,
     )
     {
         this.filteredNavigationItems = this.navigationItems = this.fuseNavigationService.getFlatNavigation(navigation);
@@ -44,7 +44,7 @@ export class FuseShortcutsComponent implements OnInit, OnDestroy
                 .subscribe(
                     (newSettings) => {
                         this.toolbarColor = newSettings.colorClasses.toolbar;
-                    }
+                    },
                 );
     }
 
@@ -64,26 +64,26 @@ export class FuseShortcutsComponent implements OnInit, OnDestroy
                     'title': 'Calendar',
                     'type' : 'nav-item',
                     'icon' : 'today',
-                    'url'  : '/apps/calendar'
+                    'url'  : '/apps/calendar',
                 },
                 {
                     'title': 'Mail',
                     'type' : 'nav-item',
                     'icon' : 'email',
-                    'url'  : '/apps/mail'
+                    'url'  : '/apps/mail',
                 },
                 {
                     'title': 'Contacts',
                     'type' : 'nav-item',
                     'icon' : 'account_box',
-                    'url'  : '/apps/contacts'
+                    'url'  : '/apps/contacts',
                 },
                 {
                     'title': 'To-Do',
                     'type' : 'nav-item',
                     'icon' : 'check_box',
-                    'url'  : '/apps/todo'
-                }
+                    'url'  : '/apps/todo',
+                },
             ];
         }
 

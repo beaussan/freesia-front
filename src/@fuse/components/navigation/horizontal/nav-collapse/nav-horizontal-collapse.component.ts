@@ -7,7 +7,7 @@ import { Subscription } from 'rxjs/Subscription';
     selector   : 'fuse-nav-horizontal-collapse',
     templateUrl: './nav-horizontal-collapse.component.html',
     styleUrls  : ['./nav-horizontal-collapse.component.scss'],
-    animations : fuseAnimations
+    animations : fuseAnimations,
 })
 export class FuseNavHorizontalCollapseComponent implements OnDestroy
 {
@@ -31,7 +31,7 @@ export class FuseNavHorizontalCollapseComponent implements OnDestroy
     }
 
     constructor(
-        private fuseConfig: FuseConfigService
+        private fuseConfig: FuseConfigService,
     )
     {
         this.onConfigChanged =
@@ -39,7 +39,7 @@ export class FuseNavHorizontalCollapseComponent implements OnDestroy
                 .subscribe(
                     (newSettings) => {
                         this.fuseSettings = newSettings;
-                    }
+                    },
                 );
     }
 

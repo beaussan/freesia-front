@@ -9,7 +9,7 @@ import { FuseShortcutsComponent } from './shortcuts.component';
 
 @NgModule({
     declarations: [
-        FuseShortcutsComponent
+        FuseShortcutsComponent,
     ],
     imports     : [
         CommonModule,
@@ -24,14 +24,14 @@ import { FuseShortcutsComponent } from './shortcuts.component';
         MatInputModule,
         MatMenuModule,
         MatListModule,
-        MatTooltipModule
+        MatTooltipModule,
     ],
     exports     : [
-        FuseShortcutsComponent
+        FuseShortcutsComponent,
     ],
     providers   : [
-        CookieService
-    ]
+        CookieService,
+    ],
 })
 export class FuseShortcutsModule
 {

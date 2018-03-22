@@ -14,17 +14,18 @@ import { fuseConfig } from './fuse-config';
 import { AppComponent } from './app.component';
 import { FuseMainModule } from './main/main.module';
 import { FuseSampleModule } from './main/content/sample/sample.module';
+import { LoginModule } from './main/content/login/login.module';
 
 const appRoutes: Routes = [
     {
         path      : '**',
-        redirectTo: 'sample'
-    }
+        redirectTo: 'sample',
+    },
 ];
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
     ],
     imports     : [
         BrowserModule,
@@ -37,11 +38,12 @@ const appRoutes: Routes = [
         FuseModule.forRoot(fuseConfig),
         FuseSharedModule,
         FuseMainModule,
-        FuseSampleModule
+        FuseSampleModule,
+        LoginModule,
     ],
     bootstrap   : [
-        AppComponent
-    ]
+        AppComponent,
+    ],
 })
 export class AppModule
 {

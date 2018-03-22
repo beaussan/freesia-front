@@ -4,10 +4,10 @@ import { FuseHighlightComponent } from '@fuse/components/highlight/highlight.com
 
 @NgModule({
     declarations: [
-        FuseHighlightComponent
+        FuseHighlightComponent,
     ],
     exports: [
-        FuseHighlightComponent
+        FuseHighlightComponent,
     ],
 })
 export class FuseHighlightModule

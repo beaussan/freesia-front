@@ -38,8 +38,8 @@ import { FuseMainComponent } from './main.component';
         FuseToolbarModule,
     ],
     exports     : [
-        FuseMainComponent
-    ]
+        FuseMainComponent,
+    ],
 })
 export class FuseMainModule
 {

@@ -7,7 +7,7 @@ import PerfectScrollbar from 'perfect-scrollbar';
 import { FuseConfigService } from '@fuse/services/config.service';
 
 @Directive({
-    selector: '[fusePerfectScrollbar]'
+    selector: '[fusePerfectScrollbar]',
 })
 export class FusePerfectScrollbarDirective implements OnInit, AfterViewInit, OnDestroy
 {
@@ -20,7 +20,7 @@ export class FusePerfectScrollbarDirective implements OnInit, AfterViewInit, OnD
     constructor(
         public element: ElementRef,
         private fuseConfig: FuseConfigService,
-        private platform: Platform
+        private platform: Platform,
     )
     {
     }
@@ -31,7 +31,7 @@ export class FusePerfectScrollbarDirective implements OnInit, AfterViewInit, OnD
             this.fuseConfig.onConfigChanged.subscribe(
                 (settings) => {
                     this.isDisableCustomScrollbars = !settings.customScrollbars;
-                }
+                },
             );
 
         if ( this.platform.ANDROID || this.platform.IOS )
@@ -50,7 +50,7 @@ export class FusePerfectScrollbarDirective implements OnInit, AfterViewInit, OnD
 
         // Initialize the perfect-scrollbar
         this.ps = new PerfectScrollbar(this.element.nativeElement, {
-            wheelPropagation: true
+            wheelPropagation: true,
         });
     }
 

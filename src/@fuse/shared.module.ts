@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
+import { TranslateModule } from '@ngx-translate/core';
+
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { FuseDirectivesModule } from '@fuse/directives/directives';
@@ -15,8 +17,10 @@ import { FusePipesModule } from '@fuse/pipes/pipes.module';
 
         FlexLayoutModule,
 
+        TranslateModule,
+
         FuseDirectivesModule,
-        FusePipesModule
+        FusePipesModule,
     ],
     exports  : [
         CommonModule,
@@ -25,9 +29,11 @@ import { FusePipesModule } from '@fuse/pipes/pipes.module';
 
         FlexLayoutModule,
 
+        TranslateModule,
+
         FuseDirectivesModule,
-        FusePipesModule
-    ]
+        FusePipesModule,
+    ],
 })
 export class FuseSharedModule
 {

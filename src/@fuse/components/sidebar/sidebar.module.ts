@@ -4,11 +4,11 @@ import { FuseSidebarComponent } from './sidebar.component';
 
 @NgModule({
     declarations: [
-        FuseSidebarComponent
+        FuseSidebarComponent,
     ],
     exports     : [
-        FuseSidebarComponent
-    ]
+        FuseSidebarComponent,
+    ],
 })
 export class FuseSidebarModule
 {

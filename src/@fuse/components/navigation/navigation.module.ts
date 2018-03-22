@@ -20,10 +20,10 @@ import { FuseNavHorizontalCollapseComponent } from './horizontal/nav-collapse/na
         MatIconModule,
         MatRippleModule,
 
-        TranslateModule.forChild()
+        TranslateModule.forChild(),
     ],
     exports     : [
-        FuseNavigationComponent
+        FuseNavigationComponent,
     ],
     declarations: [
         FuseNavigationComponent,
@@ -31,8 +31,8 @@ import { FuseNavHorizontalCollapseComponent } from './horizontal/nav-collapse/na
         FuseNavVerticalItemComponent,
         FuseNavVerticalCollapseComponent,
         FuseNavHorizontalItemComponent,
-        FuseNavHorizontalCollapseComponent
-    ]
+        FuseNavHorizontalCollapseComponent,
+    ],
 })
 export class FuseNavigationModule
 {

@@ -9,7 +9,7 @@ import { FuseThemeOptionsComponent } from '@fuse/components/theme-options/theme-
 
 @NgModule({
     declarations: [
-        FuseThemeOptionsComponent
+        FuseThemeOptionsComponent,
     ],
     imports     : [
         CommonModule,
@@ -26,11 +26,11 @@ import { FuseThemeOptionsComponent } from '@fuse/components/theme-options/theme-
         MatSelectModule,
         MatSlideToggleModule,
 
-        FuseMaterialColorPickerModule
+        FuseMaterialColorPickerModule,
     ],
     exports     : [
-        FuseThemeOptionsComponent
-    ]
+        FuseThemeOptionsComponent,
+    ],
 })
 export class FuseThemeOptionsModule
 {

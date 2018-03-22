@@ -12,7 +12,7 @@ import { CamelCaseToDashPipe } from './camelCaseToDash.pipe';
         GetByIdPipe,
         HtmlToPlaintextPipe,
         FilterPipe,
-        CamelCaseToDashPipe
+        CamelCaseToDashPipe,
     ],
     imports     : [],
     exports     : [
@@ -20,8 +20,8 @@ import { CamelCaseToDashPipe } from './camelCaseToDash.pipe';
         GetByIdPipe,
         HtmlToPlaintextPipe,
         FilterPipe,
-        CamelCaseToDashPipe
-    ]
+        CamelCaseToDashPipe,
+    ],
 })
 export class FusePipesModule
 {

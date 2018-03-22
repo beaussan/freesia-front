@@ -8,7 +8,7 @@ import { FuseSidebarService } from '@fuse/components/sidebar/sidebar.service';
 @Component({
     selector   : 'fuse-toolbar',
     templateUrl: './toolbar.component.html',
-    styleUrls  : ['./toolbar.component.scss']
+    styleUrls  : ['./toolbar.component.scss'],
 })
 
 export class FuseToolbarComponent
@@ -24,48 +24,48 @@ export class FuseToolbarComponent
         private router: Router,
         private fuseConfig: FuseConfigService,
         private sidebarService: FuseSidebarService,
-        private translate: TranslateService
+        private translate: TranslateService,
     )
     {
         this.userStatusOptions = [
             {
                 'title': 'Online',
                 'icon' : 'icon-checkbox-marked-circle',
-                'color': '#4CAF50'
+                'color': '#4CAF50',
             },
             {
                 'title': 'Away',
                 'icon' : 'icon-clock',
-                'color': '#FFC107'
+                'color': '#FFC107',
             },
             {
                 'title': 'Do not Disturb',
                 'icon' : 'icon-minus-circle',
-                'color': '#F44336'
+                'color': '#F44336',
             },
             {
                 'title': 'Invisible',
                 'icon' : 'icon-checkbox-blank-circle-outline',
-                'color': '#BDBDBD'
+                'color': '#BDBDBD',
             },
             {
                 'title': 'Offline',
                 'icon' : 'icon-checkbox-blank-circle-outline',
-                'color': '#616161'
-            }
+                'color': '#616161',
+            },
         ];
 
         this.languages = [
             {
                 'id'   : 'en',
                 'title': 'English',
-                'flag' : 'us'
+                'flag' : 'us',
             },
             {
                 'id'   : 'fr',
                 'title': 'French',
-                'flag' : 'fr'
-            }
+                'flag' : 'fr',
+            },
         ];
 
         this.selectedLanguage = this.languages[0];
