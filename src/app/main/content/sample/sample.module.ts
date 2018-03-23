@@ -8,6 +8,7 @@ import { FuseSampleComponent } from './sample.component';
 const routes = [
     {
         path     : 'sample',
+        // component: 'sample.module#FuseSampleComponent',
         component: FuseSampleComponent,
     },
 ];

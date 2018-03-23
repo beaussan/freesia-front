@@ -11,6 +11,19 @@ export const locale = {
         'REQUIRED': 'Password is required',
         'PLACEHOLDER': 'Password',
       },
+      'FIRSTNAME': {
+        'REQUIRED': 'Fristname is required',
+        'PLACEHOLDER': 'Fristname',
+      },
+      'LASTNAME': {
+        'REQUIRED': 'Lastname is required',
+        'PLACEHOLDER': 'Lastname',
+      },
+      'PASSWORDMATCH': {
+        'REQUIRED': 'Password confirmation is required',
+        'NOTMATCH': 'Passwords must match',
+        'PLACEHOLDER': 'Password (Confirm)',
+      },
     },
   },
 };
