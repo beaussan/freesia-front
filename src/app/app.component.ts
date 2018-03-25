@@ -11,19 +11,17 @@ import { locale as generalFrench } from './i18n/fr';
 import { locale as generalEnglish } from './i18n/en';
 
 @Component({
-    selector   : 'fuse-root',
+    selector: 'fuse-root',
     templateUrl: './app.component.html',
-    styleUrls  : ['./app.component.scss'],
+    styleUrls: ['./app.component.scss'],
 })
-export class AppComponent
-{
+export class AppComponent {
     constructor(
         private translate: TranslateService,
         private fuseNavigationService: FuseNavigationService,
         private fuseSplashScreen: FuseSplashScreenService,
         private fuseTranslationLoader: FuseTranslationLoaderService,
-    )
-    {
+    ) {
         // Add languages
         this.translate.addLangs(['en', 'fr']);
 

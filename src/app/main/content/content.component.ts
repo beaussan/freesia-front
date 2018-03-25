@@ -9,13 +9,12 @@ import { fuseAnimations } from '@fuse/animations/index';
 import { FuseConfigService } from '@fuse/services/config.service';
 
 @Component({
-    selector   : 'fuse-content',
+    selector: 'fuse-content',
     templateUrl: './content.component.html',
-    styleUrls  : ['./content.component.scss'],
-    animations : fuseAnimations,
+    styleUrls: ['./content.component.scss'],
+    animations: fuseAnimations,
 })
-export class FuseContentComponent implements OnDestroy
-{
+export class FuseContentComponent implements OnDestroy {
     onConfigChanged: Subscription;
     fuseSettings: any;
 
@@ -29,14 +28,12 @@ export class FuseContentComponent implements OnDestroy
         private router: Router,
         private activatedRoute: ActivatedRoute,
         private fuseConfig: FuseConfigService,
-    )
-    {
+    ) {
         this.router.events
-            .filter((event) => event instanceof NavigationEnd)
+            .filter(event => event instanceof NavigationEnd)
             .map(() => this.activatedRoute)
-            .subscribe((event) => {
-                switch ( this.fuseSettings.routerAnimation )
-                {
+            .subscribe(event => {
+                switch (this.fuseSettings.routerAnimation) {
                     case 'fadeIn':
                         this.routeAnimationFade = !this.routeAnimationFade;
                         break;
@@ -55,17 +52,12 @@ export class FuseContentComponent implements OnDestroy
                 }
             });
 
-        this.onConfigChanged =
-            this.fuseConfig.onConfigChanged
-                .subscribe(
-                    (newSettings) => {
-                        this.fuseSettings = newSettings;
-                    },
-                );
+        this.onConfigChanged = this.fuseConfig.onConfigChanged.subscribe(newSettings => {
+            this.fuseSettings = newSettings;
+        });
     }
 
-    ngOnDestroy()
-    {
+    ngOnDestroy() {
         this.onConfigChanged.unsubscribe();
     }
 }

@@ -11,7 +11,7 @@ import { FuseTranslationLoaderService } from '@fuse/services/translation-loader.
 
 @NgModule({
     entryComponents: [],
-    providers      : [
+    providers: [
         FuseConfigService,
         FuseCopierService,
         FuseMatchMediaService,
@@ -22,23 +22,23 @@ import { FuseTranslationLoaderService } from '@fuse/services/translation-loader.
         FuseTranslationLoaderService,
     ],
 })
-export class FuseModule
-{
-    constructor(@Optional() @SkipSelf() parentModule: FuseModule)
-    {
-        if ( parentModule )
-        {
+export class FuseModule {
+    constructor(
+        @Optional()
+        @SkipSelf()
+        parentModule: FuseModule,
+    ) {
+        if (parentModule) {
             throw new Error('FuseModule is already loaded. Import it in the AppModule only!');
         }
     }
 
-    static forRoot(config): ModuleWithProviders
-    {
+    static forRoot(config): ModuleWithProviders {
         return {
-            ngModule : FuseModule,
+            ngModule: FuseModule,
             providers: [
                 {
-                    provide : FUSE_CONFIG,
+                    provide: FUSE_CONFIG,
                     useValue: config,
                 },
             ],

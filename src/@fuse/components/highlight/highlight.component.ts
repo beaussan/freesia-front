@@ -5,52 +5,40 @@ import * as Prism from 'prismjs/prism';
 import './prism-languages';
 
 @Component({
-    selector : 'fuse-highlight',
-    template : ' ',
+    selector: 'fuse-highlight',
+    template: ' ',
     styleUrls: ['./highlight.component.scss'],
 })
-export class FuseHighlightComponent implements OnInit
-{
+export class FuseHighlightComponent implements OnInit {
     @ContentChild('source') source: ElementRef;
     @Input('lang') lang: string;
     @Input('path') path: string;
 
-    constructor(
-        private elementRef: ElementRef,
-        private http: HttpClient,
-    )
-    {
-    }
+    constructor(private elementRef: ElementRef, private http: HttpClient) {}
 
-    ngOnInit()
-    {
+    ngOnInit() {
         // If there is no language defined, return...
-        if ( !this.lang )
-        {
+        if (!this.lang) {
             return;
         }
 
         // If the path is defined...
-        if ( this.path )
-        {
+        if (this.path) {
             // Get the source
-            this.http.get(this.path, {responseType: 'text'}).subscribe((response) => {
-
+            this.http.get(this.path, { responseType: 'text' }).subscribe(response => {
                 // Highlight it
                 this.highlight(response);
             });
         }
 
         // If the path is not defined and the source element exists...
-        if ( !this.path && this.source )
-        {
+        if (!this.path && this.source) {
             // Highlight it
             this.highlight(this.source.nativeElement.value);
         }
     }
 
-    highlight(sourceCode)
-    {
+    highlight(sourceCode) {
         // Split the source into lines
         const sourceLines = sourceCode.split('\n');
 
@@ -58,13 +46,11 @@ export class FuseHighlightComponent implements OnInit
         // code if they are blank lines. This way, the html
         // can be formatted properly while using fuse-highlight
         // component
-        if ( !sourceLines[0].trim() )
-        {
+        if (!sourceLines[0].trim()) {
             sourceLines.shift();
         }
 
-        if ( !sourceLines[sourceLines.length - 1].trim() )
-        {
+        if (!sourceLines[sourceLines.length - 1].trim()) {
             sourceLines.pop();
         }
 
@@ -77,14 +63,12 @@ export class FuseHighlightComponent implements OnInit
 
         // Iterate through all the lines
         sourceLines.forEach((line, index) => {
-
             // Trim the beginning white space depending on the index
             // and concat the source code
             source = source + line.substr(indexOfFirstChar, line.length);
 
             // If it's not the last line...
-            if ( index !== sourceLines.length - 1 )
-            {
+            if (index !== sourceLines.length - 1) {
                 // Add a line break at the end
                 source = source + '\n';
             }
@@ -95,8 +79,10 @@ export class FuseHighlightComponent implements OnInit
 
         // Replace the innerHTML of the component with the highlighted code
         this.elementRef.nativeElement.innerHTML =
-            '<pre><code class="highlight language-' + this.lang + '">' + highlightedCode + '</code></pre>';
-
+            '<pre><code class="highlight language-' +
+            this.lang +
+            '">' +
+            highlightedCode +
+            '</code></pre>';
     }
 }
-

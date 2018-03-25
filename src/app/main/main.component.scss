@@ -1,4 +1,4 @@
-@import "src/@fuse/scss/fuse";
+@import 'src/@fuse/scss/fuse';
 
 fuse-main {
     display: flex;
@@ -55,7 +55,6 @@ fuse-main {
                             }
 
                             > *.ng-animating {
-
                                 .mat-tab-body {
                                     height: 100vh;
                                 }
@@ -67,7 +66,7 @@ fuse-main {
         }
     }
 
-    &[fuse-layout-mode="boxed"] {
+    &[fuse-layout-mode='boxed'] {
         max-width: 1200px;
         margin: 0 auto;
         @include mat-elevation(8);

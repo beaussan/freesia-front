@@ -19,16 +19,14 @@ import { RegisterModule } from './main/content/register/register.module';
 
 const appRoutes: Routes = [
     {
-        path      : '**',
+        path: '**',
         redirectTo: 'sample',
     },
 ];
 
 @NgModule({
-    declarations: [
-        AppComponent,
-    ],
-    imports     : [
+    declarations: [AppComponent],
+    imports: [
         BrowserModule,
         BrowserAnimationsModule,
         HttpClientModule,
@@ -43,10 +41,6 @@ const appRoutes: Routes = [
         LoginModule,
         RegisterModule,
     ],
-    bootstrap   : [
-        AppComponent,
-    ],
+    bootstrap: [AppComponent],
 })
-export class AppModule
-{
-}
+export class AppModule {}

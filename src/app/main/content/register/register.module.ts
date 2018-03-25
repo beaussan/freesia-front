@@ -1,7 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { MatButtonModule, MatCheckboxModule, MatFormFieldModule, MatInputModule } from '@angular/material';
+import {
+    MatButtonModule,
+    MatCheckboxModule,
+    MatFormFieldModule,
+    MatInputModule,
+} from '@angular/material';
 
 import { FuseSharedModule } from '@fuse/shared.module';
 
@@ -9,16 +14,14 @@ import { FuseRegisterComponent } from './register.component';
 
 const routes = [
     {
-        path     : 'register',
+        path: 'register',
         component: FuseRegisterComponent,
     },
 ];
 
 @NgModule({
-    declarations: [
-        FuseRegisterComponent,
-    ],
-    imports     : [
+    declarations: [FuseRegisterComponent],
+    imports: [
         RouterModule.forChild(routes),
 
         MatButtonModule,
@@ -29,6 +32,4 @@ const routes = [
         FuseSharedModule,
     ],
 })
-export class RegisterModule
-{
-}
+export class RegisterModule {}

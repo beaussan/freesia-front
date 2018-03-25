@@ -9,22 +9,8 @@ import { FuseNavbarComponent } from 'app/main/navbar/navbar.component';
 import { FuseNavigationModule } from '@fuse/components';
 
 @NgModule({
-    declarations: [
-        FuseNavbarComponent,
-    ],
-    imports     : [
-        RouterModule,
-
-        MatButtonModule,
-        MatIconModule,
-
-        FuseSharedModule,
-        FuseNavigationModule,
-    ],
-    exports     : [
-        FuseNavbarComponent,
-    ],
+    declarations: [FuseNavbarComponent],
+    imports: [RouterModule, MatButtonModule, MatIconModule, FuseSharedModule, FuseNavigationModule],
+    exports: [FuseNavbarComponent],
 })
-export class FuseNavbarModule
-{
-}
+export class FuseNavbarModule {}

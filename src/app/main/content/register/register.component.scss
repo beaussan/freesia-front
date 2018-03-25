@@ -1,7 +1,6 @@
-@import "src/@fuse/scss/fuse";
+@import 'src/@fuse/scss/fuse';
 
 :host {
-
     #register {
         width: 100%;
         overflow: auto;
@@ -20,7 +19,7 @@
                 width: 384px;
                 max-width: 384px;
                 padding: 32px;
-                background: #FFFFFF;
+                background: #ffffff;
                 text-align: center;
                 @include mat-elevation(16);
 
@@ -95,7 +94,8 @@
                         padding: 0 8px;
                         z-index: 9999;
 
-                        &:before, &:after {
+                        &:before,
+                        &:after {
                             content: '';
                             display: block;
                             width: 30px;
@@ -115,12 +115,11 @@
                 }
 
                 button {
-
                     &.google,
                     &.facebook {
                         width: 192px;
                         text-transform: none;
-                        color: #FFFFFF;
+                        color: #ffffff;
                         font-size: 13px;
                     }
 
@@ -129,7 +128,7 @@
                     }
 
                     &.google {
-                        background-color: #D73D32;
+                        background-color: #d73d32;
                         margin-bottom: 8px;
                     }
 

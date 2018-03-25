@@ -1,11 +1,8 @@
-@import "src/@fuse/scss/fuse";
+@import 'src/@fuse/scss/fuse';
 
 body {
-
     &.fuse-sidebar-folded {
-
         .content-wrapper {
-
             &:last-child {
                 padding-left: 64px !important;
             }
@@ -18,22 +15,17 @@ body {
                 padding-left: 0 !important;
                 padding-right: 0 !important;
             }
-
         }
     }
 }
 
 fuse-sidebar {
-
     &.folded:not(.unfolded) {
-
         .navbar-vertical {
-
             .navbar-header {
                 padding: 0 13px;
 
                 .logo {
-
                     .logo-text {
                         opacity: 0;
                         transition: opacity 200ms ease;
@@ -45,7 +37,6 @@ fuse-sidebar {
 }
 
 fuse-navbar {
-
     &:not(.top-navbar) {
         height: 100%;
     }
@@ -64,7 +55,7 @@ fuse-navbar {
             min-height: 64px;
             padding: 0 16px 0 24px;
             transition: padding 200ms ease;
-            background-color: rgba(255, 255, 255, .05);
+            background-color: rgba(255, 255, 255, 0.05);
             @include mat-elevation(1);
 
             .logo {
@@ -92,7 +83,6 @@ fuse-navbar {
 }
 
 .top-navbar + #wrapper {
-
     & > .left-navbar {
         display: none !important;
 
@@ -101,4 +91,3 @@ fuse-navbar {
         }
     }
 }
-

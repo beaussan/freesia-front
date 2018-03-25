@@ -11,7 +11,7 @@
     font-size: 17px;
     font-weight: 500;
     text-align: center;
-    color: #FFFFFF;
+    color: #ffffff;
 
     &.square {
         border-radius: 0;
@@ -57,32 +57,32 @@ mat-icon.status {
     border-radius: 50%;
 
     &.online {
-        color: #4CAF50;
+        color: #4caf50;
         &:before {
-            content: "check_circle";
+            content: 'check_circle';
         }
     }
 
     &.do-not-disturb {
-        color: #F44336;
+        color: #f44336;
         &:before {
-            content: "do_not_disturb_on";
+            content: 'do_not_disturb_on';
         }
     }
 
     &.away {
-        background-color: #FFC107;
-        color: #FFFFFF;
+        background-color: #ffc107;
+        color: #ffffff;
         &:before {
-            content: "access_time";
+            content: 'access_time';
         }
     }
 
     &.offline {
         color: #646464;
-        background-color: #FFFFFF;
+        background-color: #ffffff;
         &:before {
-            content: "not_interested";
+            content: 'not_interested';
         }
     }
 }
@@ -91,7 +91,7 @@ mat-icon.status {
 /*  Forms
 /*----------------------------------------------------------------*/
 .form-wrapper {
-    background: #FFFFFF;
+    background: #ffffff;
     padding: 16px;
 
     .form-title {
@@ -104,7 +104,6 @@ mat-icon.status {
 /*  Navigation - Simple
 /*----------------------------------------------------------------*/
 .navigation-simple {
-
     .item {
         position: relative;
         cursor: pointer;
@@ -155,7 +154,7 @@ mat-icon.status {
     display: inline-flex;
     flex-direction: row;
     @include mat-elevation(1);
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     padding: 0 8px;
 
     .pagination-item {
@@ -190,17 +189,15 @@ mat-icon.status {
 /*  Price Tables
 /*----------------------------------------------------------------*/
 .price-tables {
-
     .price-table {
         position: relative;
-        background-color: #FFFFFF;
+        background-color: #ffffff;
         width: 280px;
         border-radius: 2px;
         margin: 12px;
         overflow: hidden;
 
         &.style-1 {
-
             .package-type {
                 font-size: 17px;
                 padding: 16px 24px;
@@ -243,7 +240,6 @@ mat-icon.status {
                 font-size: 15px;
 
                 .term {
-
                 }
             }
 
@@ -254,7 +250,6 @@ mat-icon.status {
         }
 
         &.style-2 {
-
             .badge {
                 position: absolute;
                 top: 0;
@@ -317,7 +312,6 @@ mat-icon.status {
         }
 
         &.style-3 {
-
             .package-type {
                 padding: 32px;
                 text-align: center;
@@ -385,7 +379,7 @@ mat-icon.status {
 /*  Table - Simple
 /*----------------------------------------------------------------*/
 .simple-table-container {
-    background: #FFFFFF;
+    background: #ffffff;
 
     .table-title {
         font-size: 20px;
@@ -394,7 +388,6 @@ mat-icon.status {
 }
 
 table {
-
     &.simple {
         width: 100%;
         border: none;
@@ -402,9 +395,7 @@ table {
         text-align: left;
 
         thead {
-
             tr {
-
                 th {
                     padding: 16px 8px;
                     font-weight: 500;
@@ -424,9 +415,7 @@ table {
         }
 
         tbody {
-
             tr {
-
                 td {
                     padding: 16px 8px;
                     border-bottom: 1px solid rgba(0, 0, 0, 0.12);
@@ -441,7 +430,6 @@ table {
                 }
 
                 &:last-child {
-
                     td {
                         border-bottom: none;
                     }
@@ -450,9 +438,7 @@ table {
         }
 
         &.clickable {
-
             tbody {
-
                 tr {
                     cursor: pointer;
 

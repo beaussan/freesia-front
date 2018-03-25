@@ -1,5 +1,4 @@
 .ngx-datatable {
-
     &.material {
         @include mat-elevation(4);
 
@@ -85,9 +84,7 @@
                     margin: 0 0 0 24px;
 
                     .pager {
-
                         li {
-
                             a {
                                 text-decoration: none !important;
                             }
@@ -99,7 +96,7 @@
     }
 }
 
-[class*="datatable-icon-"] {
+[class*='datatable-icon-'] {
     font-family: 'Material Icons';
     font-weight: normal;
     font-style: normal;
@@ -116,50 +113,50 @@
 }
 
 .datatable-icon-filter:before {
-    content: "filter_list";
+    content: 'filter_list';
 }
 .datatable-icon-collapse:before {
-    content: "unfold_less";
+    content: 'unfold_less';
 }
 .datatable-icon-expand:before {
-    content: "unfold_more";
+    content: 'unfold_more';
 }
 .datatable-icon-close:before {
-    content: "close";
+    content: 'close';
 }
 .datatable-icon-up:before {
-    content: "keyboard_arrow_up";
+    content: 'keyboard_arrow_up';
 }
 .datatable-icon-down:before {
-    content: "keyboard_arrow_down";
+    content: 'keyboard_arrow_down';
 }
 .datatable-icon-sort:before {
-    content: "sort";
+    content: 'sort';
 }
 .datatable-icon-done:before {
-    content: "done";
+    content: 'done';
 }
 .datatable-icon-done-all:before {
-    content: "done_all";
+    content: 'done_all';
 }
 .datatable-icon-search:before {
-    content: "search";
+    content: 'search';
 }
 .datatable-icon-pin:before {
-    content: "lock";
+    content: 'lock';
 }
 .datatable-icon-add:before {
-    content: "add";
+    content: 'add';
 }
 .datatable-icon-left:before {
-    content: "chevron_left";
+    content: 'chevron_left';
 }
 .datatable-icon-right:before {
-    content: "chevron_right";
+    content: 'chevron_right';
 }
 .datatable-icon-skip:before {
-    content: "skip_next";
+    content: 'skip_next';
 }
 .datatable-icon-prev:before {
-    content: "skip_previous";
+    content: 'skip_previous';
 }

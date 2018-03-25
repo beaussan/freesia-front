@@ -3,19 +3,17 @@
 /*----------------------------------------------------------------*/
 
 @media all {
-
     /* Never show page breaks in normal view */
     .page-break-after,
     .page-break-before {
         display: none;
     }
-
 }
 
 @media print {
-
     /* html and body tweaks */
-    html, body {
+    html,
+    body {
         height: auto !important;
         overflow: initial !important;
     }
@@ -35,7 +33,6 @@
 
     /* General styles */
     fuse-root {
-
         fuse-navbar-vertical,
         fuse-navbar-horizontal,
         fuse-toolbar,
@@ -58,7 +55,7 @@
             .mat-drawer-content,
             .mat-sidenav-content {
                 overflow: initial !important;
-                height: auto !important
+                height: auto !important;
             }
         }
     }

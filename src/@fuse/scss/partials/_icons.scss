@@ -9,13 +9,10 @@ mat-icon {
     line-height: 24px;
 
     @each $breakpoint in map-keys($grid-breakpoints) {
-
         @include media-breakpoint-up($breakpoint) {
-
             $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
 
             @for $size from 2 through 128 {
-
                 &.s#{$infix}-#{$size * 2} {
                     font-size: #{($size * 2) + 'px'} !important;
                     width: #{($size * 2) + 'px'} !important;

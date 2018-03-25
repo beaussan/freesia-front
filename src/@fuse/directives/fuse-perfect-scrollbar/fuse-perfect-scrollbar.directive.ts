@@ -1,4 +1,11 @@
-import { AfterViewInit, Directive, ElementRef, HostListener, OnDestroy, OnInit } from '@angular/core';
+import {
+    AfterViewInit,
+    Directive,
+    ElementRef,
+    HostListener,
+    OnDestroy,
+    OnInit,
+} from '@angular/core';
 import { Platform } from '@angular/cdk/platform';
 import { Subscription } from 'rxjs/Subscription';
 
@@ -9,8 +16,7 @@ import { FuseConfigService } from '@fuse/services/config.service';
 @Directive({
     selector: '[fusePerfectScrollbar]',
 })
-export class FusePerfectScrollbarDirective implements OnInit, AfterViewInit, OnDestroy
-{
+export class FusePerfectScrollbarDirective implements OnInit, AfterViewInit, OnDestroy {
     onConfigChanged: Subscription;
     isDisableCustomScrollbars = false;
     isMobile = false;
@@ -21,29 +27,20 @@ export class FusePerfectScrollbarDirective implements OnInit, AfterViewInit, OnD
         public element: ElementRef,
         private fuseConfig: FuseConfigService,
         private platform: Platform,
-    )
-    {
-    }
+    ) {}
 
-    ngOnInit()
-    {
-        this.onConfigChanged =
-            this.fuseConfig.onConfigChanged.subscribe(
-                (settings) => {
-                    this.isDisableCustomScrollbars = !settings.customScrollbars;
-                },
-            );
+    ngOnInit() {
+        this.onConfigChanged = this.fuseConfig.onConfigChanged.subscribe(settings => {
+            this.isDisableCustomScrollbars = !settings.customScrollbars;
+        });
 
-        if ( this.platform.ANDROID || this.platform.IOS )
-        {
+        if (this.platform.ANDROID || this.platform.IOS) {
             this.isMobile = true;
         }
     }
 
-    ngAfterViewInit()
-    {
-        if ( this.isMobile || this.isDisableCustomScrollbars )
-        {
+    ngAfterViewInit() {
+        if (this.isMobile || this.isDisableCustomScrollbars) {
             this.isInitialized = false;
             return;
         }
@@ -54,10 +51,8 @@ export class FusePerfectScrollbarDirective implements OnInit, AfterViewInit, OnD
         });
     }
 
-    ngOnDestroy()
-    {
-        if ( !this.isInitialized || !this.ps )
-        {
+    ngOnDestroy() {
+        if (!this.isInitialized || !this.ps) {
             return;
         }
 
@@ -68,10 +63,8 @@ export class FusePerfectScrollbarDirective implements OnInit, AfterViewInit, OnD
     }
 
     @HostListener('document:click', ['$event'])
-    documentClick(event: Event): void
-    {
-        if ( !this.isInitialized || !this.ps )
-        {
+    documentClick(event: Event): void {
+        if (!this.isInitialized || !this.ps) {
             return;
         }
 
@@ -82,10 +75,8 @@ export class FusePerfectScrollbarDirective implements OnInit, AfterViewInit, OnD
         this.ps.update();
     }
 
-    update()
-    {
-        if ( !this.isInitialized )
-        {
+    update() {
+        if (!this.isInitialized) {
             return;
         }
 
@@ -93,57 +84,46 @@ export class FusePerfectScrollbarDirective implements OnInit, AfterViewInit, OnD
         this.ps.update();
     }
 
-    destroy()
-    {
+    destroy() {
         this.ngOnDestroy();
     }
 
-    scrollToX(x: number, speed?: number)
-    {
+    scrollToX(x: number, speed?: number) {
         this.animateScrolling('scrollLeft', x, speed);
     }
 
-    scrollToY(y: number, speed?: number)
-    {
+    scrollToY(y: number, speed?: number) {
         this.animateScrolling('scrollTop', y, speed);
     }
 
-    scrollToTop(offset?: number, speed?: number)
-    {
-        this.animateScrolling('scrollTop', (offset || 0), speed);
+    scrollToTop(offset?: number, speed?: number) {
+        this.animateScrolling('scrollTop', offset || 0, speed);
     }
 
-    scrollToLeft(offset?: number, speed?: number)
-    {
-        this.animateScrolling('scrollLeft', (offset || 0), speed);
+    scrollToLeft(offset?: number, speed?: number) {
+        this.animateScrolling('scrollLeft', offset || 0, speed);
     }
 
-    scrollToRight(offset?: number, speed?: number)
-    {
+    scrollToRight(offset?: number, speed?: number) {
         const width = this.element.nativeElement.scrollWidth;
 
         this.animateScrolling('scrollLeft', width - (offset || 0), speed);
     }
 
-    scrollToBottom(offset?: number, speed?: number)
-    {
+    scrollToBottom(offset?: number, speed?: number) {
         const height = this.element.nativeElement.scrollHeight;
 
         this.animateScrolling('scrollTop', height - (offset || 0), speed);
     }
 
-    animateScrolling(target: string, value: number, speed?: number)
-    {
-        if ( !speed )
-        {
+    animateScrolling(target: string, value: number, speed?: number) {
+        if (!speed) {
             this.element.nativeElement[target] = value;
 
             // PS has weird event sending order, this is a workaround for that
             this.update();
             this.update();
-        }
-        else if ( value !== this.element.nativeElement[target] )
-        {
+        } else if (value !== this.element.nativeElement[target]) {
             let newValue = 0;
             let scrollCount = 0;
 
@@ -152,25 +132,21 @@ export class FusePerfectScrollbarDirective implements OnInit, AfterViewInit, OnD
 
             const cosParameter = (oldValue - value) / 2;
 
-            const step = (newTimestamp) => {
+            const step = newTimestamp => {
                 scrollCount += Math.PI / (speed / (newTimestamp - oldTimestamp));
 
                 newValue = Math.round(value + cosParameter + cosParameter * Math.cos(scrollCount));
 
                 // Only continue animation if scroll position has not changed
-                if ( this.element.nativeElement[target] === oldValue )
-                {
-                    if ( scrollCount >= Math.PI )
-                    {
+                if (this.element.nativeElement[target] === oldValue) {
+                    if (scrollCount >= Math.PI) {
                         this.element.nativeElement[target] = value;
 
                         // PS has weird event sending order, this is a workaround for that
                         this.update();
 
                         this.update();
-                    }
-                    else
-                    {
+                    } else {
                         this.element.nativeElement[target] = oldValue = newValue;
 
                         oldTimestamp = newTimestamp;

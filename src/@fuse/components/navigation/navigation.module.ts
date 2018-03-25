@@ -13,7 +13,7 @@ import { FuseNavHorizontalItemComponent } from './horizontal/nav-item/nav-horizo
 import { FuseNavHorizontalCollapseComponent } from './horizontal/nav-collapse/nav-horizontal-collapse.component';
 
 @NgModule({
-    imports     : [
+    imports: [
         CommonModule,
         RouterModule,
 
@@ -22,9 +22,7 @@ import { FuseNavHorizontalCollapseComponent } from './horizontal/nav-collapse/na
 
         TranslateModule.forChild(),
     ],
-    exports     : [
-        FuseNavigationComponent,
-    ],
+    exports: [FuseNavigationComponent],
     declarations: [
         FuseNavigationComponent,
         FuseNavVerticalGroupComponent,
@@ -34,6 +32,4 @@ import { FuseNavHorizontalCollapseComponent } from './horizontal/nav-collapse/na
         FuseNavHorizontalCollapseComponent,
     ],
 })
-export class FuseNavigationModule
-{
-}
+export class FuseNavigationModule {}
