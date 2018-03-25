@@ -3,7 +3,7 @@ export const locale = {
   data: {
     'LOGIN': {
       'TITLE': 'Login to your account',
-      'LOGIN_BUTTON': 'LOGIN',
+      'LOGIN_BUTTON': 'Login',
       'DONT_HAVE_ACCOUNT': 'Don\'t have an account?',
       'REGISTER': 'Create an account',
 

@@ -2,11 +2,9 @@ export const locale = {
   lang: 'fr',
   data: {
     'REGISTER': {
-      'TITLE': 'Connectez vous !',
-      'LOGIN_BUTTON': 'Connexion',
-      'DONT_HAVE_ACCOUNT': 'Pas encore de compte ?',
-      'REGISTER': 'Créer un compte',
-
+      'TITLE': 'Inscrivez vous !',
+      'REGISTER_BUTTON': 'Inscription',
+      'ALREADY_HAVE_ACCOUNT': 'Déjà un compte ? ',
+      'LOGIN': 'Connectez vous !',
     },
-  },
 };

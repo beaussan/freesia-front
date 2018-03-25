@@ -8,7 +8,7 @@
                 <img src="assets/images/logos/fuse.svg">
             </div>
 
-            <div class="title">CREATE AN ACCOUNT</div>
+            <div class="title" [translate]="'REGISTER.TITLE'">CREATE AN ACCOUNT</div>
 
             <form name="registerForm" [formGroup]="registerForm" novalidate>
 
@@ -55,14 +55,14 @@
 
                 <button mat-raised-button color="accent" class="submit-button" aria-label="CREATE AN ACCOUNT"
                         [disabled]="registerForm.invalid">
-                    CREATE AN ACCOUNT
+                        {{ 'REGISTER.REGISTER_BUTTON' | translate }}
                 </button>
 
             </form>
 
             <div class="register" fxLayout="column" fxLayoutAlign="center center">
-                <span class="text">Already have an account?</span>
-                <a class="link" [routerLink]="'/login'">Login</a>
+                <span class="text" [translate]="'REGISTER.ALREADY_HAVE_ACCOUNT'">Already have an account?</span>
+                <a class="link" [routerLink]="'/login'" [translate]="'REGISTER.LOGIN'">Login</a>
             </div>
 
         </div>
