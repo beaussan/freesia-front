@@ -1,6 +1,9 @@
 export const locale = {
     lang: 'fr',
     data: {
+        TOASTS: {
+            LOGIN_ERROR: 'Il y a un problème avec votre mot de passe ou email.',
+        },
         FORM: {
             EMAIL: {
                 REQUIRED: "L'Email est requis",

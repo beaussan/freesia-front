@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { FuseConfigService } from '@fuse/services/config.service';
 import { fuseAnimations } from '@fuse/animations';
+import { AuthService } from '@fuse/services/auth.service';
 
 import { FuseTranslationLoaderService } from '@fuse/services/translation-loader.service';
 
@@ -23,6 +24,7 @@ export class FuseLoginComponent implements OnInit {
         private fuseConfig: FuseConfigService,
         private formBuilder: FormBuilder,
         private fuseTranslationLoader: FuseTranslationLoaderService,
+        private authService: AuthService,
     ) {
         this.fuseTranslationLoader.loadTranslations(english, french);
         this.fuseConfig.setConfig({
@@ -37,6 +39,12 @@ export class FuseLoginComponent implements OnInit {
             email: {},
             password: {},
         };
+    }
+
+    onSubmit() {
+        const { email, password } = this.loginForm.value;
+        console.log('Submtin to auth service');
+        this.authService.login(email, password);
     }
 
     ngOnInit() {
