@@ -3,6 +3,7 @@ export const locale = {
     data: {
         TOASTS: {
             LOGIN_ERROR: 'Il y a un problème avec votre mot de passe ou email.',
+            REGISTER_ERROR: 'Il y a eu un problème avec votre création, désoler :(.',
         },
         FORM: {
             EMAIL: {

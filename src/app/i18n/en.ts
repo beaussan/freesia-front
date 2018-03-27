@@ -3,6 +3,7 @@ export const locale = {
     data: {
         TOASTS: {
             LOGIN_ERROR: 'There is somthing wrong with your email or password.',
+            REGISTER_ERROR: 'There is somthing wrong with your register, sorry :( .',
         },
         FORM: {
             EMAIL: {

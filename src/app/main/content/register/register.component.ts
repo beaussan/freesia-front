@@ -3,7 +3,8 @@ import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/fo
 
 import { FuseConfigService } from '@fuse/services/config.service';
 import { fuseAnimations } from '@fuse/animations';
-import { FuseTranslationLoaderService } from '../../../../@fuse/services/translation-loader.service';
+import { FuseTranslationLoaderService } from '@fuse/services/translation-loader.service';
+import { AuthService } from '@fuse/services/auth.service';
 
 import { locale as english } from './i18n/en';
 import { locale as french } from './i18n/fr';
@@ -22,6 +23,7 @@ export class FuseRegisterComponent implements OnInit {
         private fuseConfig: FuseConfigService,
         private formBuilder: FormBuilder,
         private fuseTranslationLoader: FuseTranslationLoaderService,
+        private authService: AuthService,
     ) {
         this.fuseTranslationLoader.loadTranslations(english, french);
         this.fuseConfig.setConfig({
@@ -53,6 +55,12 @@ export class FuseRegisterComponent implements OnInit {
         this.registerForm.valueChanges.subscribe(() => {
             this.onRegisterFormValuesChanged();
         });
+    }
+
+    onSubmit() {
+        const { email, password, firstname, lastname } = this.registerForm.value;
+        console.log('Submtin to auth service');
+        this.authService.registerAndLogin(password, firstname, lastname, email);
     }
 
     onRegisterFormValuesChanged() {

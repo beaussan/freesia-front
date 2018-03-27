@@ -54,7 +54,7 @@
                 </mat-form-field>
 
                 <button mat-raised-button color="accent" class="submit-button" aria-label="CREATE AN ACCOUNT"
-                        [disabled]="registerForm.invalid">
+                        [disabled]="registerForm.invalid"  (click)="onSubmit()" >
                         {{ 'REGISTER.REGISTER_BUTTON' | translate }}
                 </button>
 

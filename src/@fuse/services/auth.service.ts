@@ -23,6 +23,29 @@ const loginRequrest = gql`
     }
 `;
 
+const registerMutation = gql`
+    mutation registerUser(
+        $email: String!
+        $password: String!
+        $fristname: String!
+        $lastname: String!
+    ) {
+        register(
+            newUser: {
+                password: $password
+                firstName: $fristname
+                lastName: $lastname
+                email: $email
+            }
+        ) {
+            id
+            firstName
+            lastName
+            email
+        }
+    }
+`;
+
 @Injectable()
 export class AuthService {
     constructor(
@@ -59,6 +82,31 @@ export class AuthService {
     disconect() {
         localStorage.removeItem('token');
         this.user = undefined;
+    }
+
+    registerAndLogin(password, fristname, lastname, email) {
+        console.log('Loggin in for ', email, password);
+
+        this.apollo
+            .mutate({
+                mutation: registerMutation,
+                variables: {
+                    email,
+                    password,
+                    fristname,
+                    lastname,
+                },
+                fetchPolicy: 'no-cache',
+            })
+            .subscribe(
+                ({ data }) => {
+                    this.login(email, password);
+                },
+                error => {
+                    console.log('there was an error sending the query', error);
+                    this.makeToastWithMessage('TOASTS.REGISTER_ERROR');
+                },
+            );
     }
 
     private gotToken({ getToken }) {
