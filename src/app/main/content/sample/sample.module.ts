@@ -7,25 +7,15 @@ import { FuseSampleComponent } from './sample.component';
 
 const routes = [
     {
-        path     : 'sample',
+        path: 'sample',
+        // component: 'sample.module#FuseSampleComponent',
         component: FuseSampleComponent,
     },
 ];
 
 @NgModule({
-    declarations: [
-        FuseSampleComponent,
-    ],
-    imports     : [
-        RouterModule.forChild(routes),
-
-        FuseSharedModule,
-    ],
-    exports     : [
-        FuseSampleComponent,
-    ],
+    declarations: [FuseSampleComponent],
+    imports: [RouterModule.forChild(routes), FuseSharedModule],
+    exports: [FuseSampleComponent],
 })
-
-export class FuseSampleModule
-{
-}
+export class FuseSampleModule {}

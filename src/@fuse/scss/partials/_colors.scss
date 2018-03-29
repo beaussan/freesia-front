@@ -47,10 +47,8 @@ $matColorHues: 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, A100, A200, A400
 
 // Text color levels generator mixin
 @mixin generateTextColorLevels($baseTextColor) {
-
     // If the base text color is black...
     @if (rgba(black, 1) == rgba($baseTextColor, 1)) {
-
         .mat-icon,
         .icon {
             color: rgba(0, 0, 0, 0.54);
@@ -76,11 +74,9 @@ $matColorHues: 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, A100, A200, A400
         .mat-ripple-element {
             background: rgba(0, 0, 0, 0.1);
         }
-
     }
-        // If the base text color is white...
+    // If the base text color is white...
     @else {
-
         .mat-icon,
         .icon {
             color: rgba(255, 255, 255, 1);
@@ -88,14 +84,14 @@ $matColorHues: 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, A100, A200, A400
 
         &.secondary-text,
         .secondary-text {
-            color: rgba(255, 255, 255, 0.70) !important;
+            color: rgba(255, 255, 255, 0.7) !important;
         }
 
         &.hint-text,
         .hint-text,
         &.disabled-text,
         .disabled-text {
-            color: rgba(255, 255, 255, 0.50) !important;
+            color: rgba(255, 255, 255, 0.5) !important;
         }
 
         &.divider,
@@ -110,27 +106,25 @@ $matColorHues: 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, A100, A200, A400
 }
 
 @mixin generateMaterialElementColors($contrastColor) {
-
     // If the contrast color is white...
     $fuseForeground: (
         base: white,
         text: white,
         hint-text: rgba(white, 0.5),
-        divider: rgba(white, 0.12),
+        divider: rgba(white, 0.12)
     );
 
     // If the contrast color is black...
     @if (rgba(black, 1) == rgba($contrastColor, 1)) {
-
         $fuseForeground: (
             base: black,
             hint-text: rgba(black, 0.38),
-            divider: rgba(black, 0.12),
+            divider: rgba(black, 0.12)
         );
     }
 
     // Native Input
-    input[type="text"] {
+    input[type='text'] {
         color: map_get($fuseForeground, base);
     }
 
@@ -171,7 +165,6 @@ $matColorHues: 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, A100, A200, A400
 
 // Color classes generator mixin
 @mixin generateColorClasses($colorName, $color, $contrastColor, $hue) {
-
     .#{$colorName}#{$hue}-bg {
         background-color: $color !important;
     }
@@ -189,8 +182,8 @@ $matColorHues: 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, A100, A200, A400
         @include generateMaterialElementColors($contrastColor);
 
         &[disabled] {
-            background-color: rgba($color, .12) !important;
-            color: rgba($contrastColor, .26) !important;
+            background-color: rgba($color, 0.12) !important;
+            color: rgba($contrastColor, 0.26) !important;
         }
     }
 
@@ -229,14 +222,11 @@ $matColorHues: 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, A100, A200, A400
 
 // Generate the color classes...
 @each $colorName, $colorMap in $matColorsMap {
-
     @each $hue in $matColorHues {
-
         $color: map-get($colorMap, $hue);
         $contrastColor: map-get(map-get($colorMap, 'contrast'), $hue);
 
         @if ($color != null and $contrastColor != null) {
-
             @include generateColorClasses($colorName, $color, $contrastColor, '-#{$hue}');
 
             // Run the generator one more time for default values (500)

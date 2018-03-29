@@ -48,7 +48,6 @@ fuse-widget {
     }
 
     &.flipped {
-
         > .fuse-widget-front {
             visibility: hidden;
             opacity: 0;
@@ -64,9 +63,7 @@ fuse-widget {
     }
 
     .mat-form-field {
-
         &.mat-form-field-type-mat-select {
-
             .mat-input-wrapper {
                 padding: 16px 0;
 

@@ -10,12 +10,11 @@ import { FuseConfigService } from '@fuse/services/config.service';
 import { navigation } from 'app/navigation/navigation';
 
 @Component({
-    selector   : 'fuse-shortcuts',
+    selector: 'fuse-shortcuts',
     templateUrl: './shortcuts.component.html',
-    styleUrls  : ['./shortcuts.component.scss'],
+    styleUrls: ['./shortcuts.component.scss'],
 })
-export class FuseShortcutsComponent implements OnInit, OnDestroy
-{
+export class FuseShortcutsComponent implements OnInit, OnDestroy {
     shortcutItems: any[] = [];
     navigationItems: any[];
     filteredNavigationItems: any[];
@@ -35,78 +34,66 @@ export class FuseShortcutsComponent implements OnInit, OnDestroy
         private fuseNavigationService: FuseNavigationService,
         private fuseConfig: FuseConfigService,
         private cookieService: CookieService,
-    )
-    {
-        this.filteredNavigationItems = this.navigationItems = this.fuseNavigationService.getFlatNavigation(navigation);
+    ) {
+        this.filteredNavigationItems = this.navigationItems = this.fuseNavigationService.getFlatNavigation(
+            navigation,
+        );
 
-        this.onConfigChanged =
-            this.fuseConfig.onConfigChanged
-                .subscribe(
-                    (newSettings) => {
-                        this.toolbarColor = newSettings.colorClasses.toolbar;
-                    },
-                );
+        this.onConfigChanged = this.fuseConfig.onConfigChanged.subscribe(newSettings => {
+            this.toolbarColor = newSettings.colorClasses.toolbar;
+        });
     }
 
-    ngOnInit()
-    {
+    ngOnInit() {
         const cookieExists = this.cookieService.check('FUSE2.shortcuts');
 
-        if ( cookieExists )
-        {
+        if (cookieExists) {
             this.shortcutItems = JSON.parse(this.cookieService.get('FUSE2.shortcuts'));
-        }
-        else
-        {
+        } else {
             // User's shortcut items
             this.shortcutItems = [
                 {
-                    'title': 'Calendar',
-                    'type' : 'nav-item',
-                    'icon' : 'today',
-                    'url'  : '/apps/calendar',
+                    title: 'Calendar',
+                    type: 'nav-item',
+                    icon: 'today',
+                    url: '/apps/calendar',
                 },
                 {
-                    'title': 'Mail',
-                    'type' : 'nav-item',
-                    'icon' : 'email',
-                    'url'  : '/apps/mail',
+                    title: 'Mail',
+                    type: 'nav-item',
+                    icon: 'email',
+                    url: '/apps/mail',
                 },
                 {
-                    'title': 'Contacts',
-                    'type' : 'nav-item',
-                    'icon' : 'account_box',
-                    'url'  : '/apps/contacts',
+                    title: 'Contacts',
+                    type: 'nav-item',
+                    icon: 'account_box',
+                    url: '/apps/contacts',
                 },
                 {
-                    'title': 'To-Do',
-                    'type' : 'nav-item',
-                    'icon' : 'check_box',
-                    'url'  : '/apps/todo',
+                    title: 'To-Do',
+                    type: 'nav-item',
+                    icon: 'check_box',
+                    url: '/apps/todo',
                 },
             ];
         }
 
-        this.matchMediaSubscription =
-            this.fuseMatchMedia.onMediaChange.subscribe(() => {
-                if ( this.observableMedia.isActive('gt-sm') )
-                {
-                    this.hideMobileShortcutsPanel();
-                }
-            });
+        this.matchMediaSubscription = this.fuseMatchMedia.onMediaChange.subscribe(() => {
+            if (this.observableMedia.isActive('gt-sm')) {
+                this.hideMobileShortcutsPanel();
+            }
+        });
     }
 
-    ngOnDestroy()
-    {
+    ngOnDestroy() {
         this.matchMediaSubscription.unsubscribe();
     }
 
-    search(event)
-    {
+    search(event) {
         const value = event.target.value.toLowerCase();
 
-        if ( value === '' )
-        {
+        if (value === '') {
             this.searching = false;
             this.filteredNavigationItems = this.navigationItems;
 
@@ -115,19 +102,16 @@ export class FuseShortcutsComponent implements OnInit, OnDestroy
 
         this.searching = true;
 
-        this.filteredNavigationItems = this.navigationItems.filter((navigationItem) => {
+        this.filteredNavigationItems = this.navigationItems.filter(navigationItem => {
             return navigationItem.title.toLowerCase().includes(value);
         });
     }
 
-    toggleShortcut(event, itemToToggle)
-    {
+    toggleShortcut(event, itemToToggle) {
         event.stopPropagation();
 
-        for ( let i = 0; i < this.shortcutItems.length; i++ )
-        {
-            if ( this.shortcutItems[i].url === itemToToggle.url )
-            {
+        for (let i = 0; i < this.shortcutItems.length; i++) {
+            if (this.shortcutItems[i].url === itemToToggle.url) {
                 this.shortcutItems.splice(i, 1);
 
                 // Save to the cookies
@@ -143,28 +127,24 @@ export class FuseShortcutsComponent implements OnInit, OnDestroy
         this.cookieService.set('FUSE2.shortcuts', JSON.stringify(this.shortcutItems));
     }
 
-    isInShortcuts(navigationItem)
-    {
+    isInShortcuts(navigationItem) {
         return this.shortcutItems.find(item => {
             return item.url === navigationItem.url;
         });
     }
 
-    onMenuOpen()
-    {
+    onMenuOpen() {
         setTimeout(() => {
             this.searchInputField.nativeElement.focus();
         });
     }
 
-    showMobileShortcutsPanel()
-    {
+    showMobileShortcutsPanel() {
         this.mobileShortcutsPanelActive = true;
         this.renderer.addClass(this.shortcutsEl.nativeElement, 'show-mobile-panel');
     }
 
-    hideMobileShortcutsPanel()
-    {
+    hideMobileShortcutsPanel() {
         this.mobileShortcutsPanelActive = false;
         this.renderer.removeClass(this.shortcutsEl.nativeElement, 'show-mobile-panel');
     }

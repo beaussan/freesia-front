@@ -1,4 +1,5 @@
 export const environment = {
     production: true,
-    hmr       : false,
+    graphqlUrl: 'https://api.freesia.io/graphql',
+    hmr: false,
 };

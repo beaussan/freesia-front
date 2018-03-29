@@ -24,13 +24,11 @@ $grid-breakpoints: (
 ) !default;
 
 @mixin media-breakpoint($breakpointName) {
-
     $mediaQuery: map_get($breakpoints, $breakpointName);
 
     @if ($mediaQuery != null) {
-
         @media #{$mediaQuery} {
-            @content
+            @content;
         }
     }
 }
@@ -41,7 +39,11 @@ $grid-breakpoints: (
 //    md
 //    >> breakpoint-next(sm, $breakpoint-names: (xs sm md lg xl))
 //    md
-@function breakpoint-next($name, $breakpoints: $grid-breakpoints, $breakpoint-names: map-keys($breakpoints)) {
+@function breakpoint-next(
+    $name,
+    $breakpoints: $grid-breakpoints,
+    $breakpoint-names: map-keys($breakpoints)
+) {
     $n: index($breakpoint-names, $name);
     @return if($n < length($breakpoint-names), nth($breakpoint-names, $n + 1), null);
 }
@@ -73,7 +75,7 @@ $grid-breakpoints: (
 //    >> breakpoint-infix(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
 //    "-sm"
 @function breakpoint-infix($name, $breakpoints: $grid-breakpoints) {
-    @return if(breakpoint-min($name, $breakpoints) == null, "", "-#{$name}");
+    @return if(breakpoint-min($name, $breakpoints) == null, '', '-#{$name}');
 }
 
 // Media of at least the minimum breakpoint width. No query for the smallest breakpoint.

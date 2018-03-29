@@ -1,4 +1,4 @@
-@import "src/@fuse/scss/fuse";
+@import 'src/@fuse/scss/fuse';
 
 @keyframes rotating {
     from {
@@ -100,7 +100,7 @@
         border-radius: 0;
         margin: 0;
         pointer-events: auto;
-        opacity: .75;
+        opacity: 0.75;
         z-index: 998;
 
         mat-icon {
@@ -111,5 +111,4 @@
             opacity: 1;
         }
     }
-
 }

@@ -15,19 +15,18 @@ import { AppComponent } from './app.component';
 import { FuseMainModule } from './main/main.module';
 import { FuseSampleModule } from './main/content/sample/sample.module';
 import { LoginModule } from './main/content/login/login.module';
+import { RegisterModule } from './main/content/register/register.module';
 
 const appRoutes: Routes = [
     {
-        path      : '**',
+        path: '**',
         redirectTo: 'sample',
     },
 ];
 
 @NgModule({
-    declarations: [
-        AppComponent,
-    ],
-    imports     : [
+    declarations: [AppComponent],
+    imports: [
         BrowserModule,
         BrowserAnimationsModule,
         HttpClientModule,
@@ -40,11 +39,8 @@ const appRoutes: Routes = [
         FuseMainModule,
         FuseSampleModule,
         LoginModule,
+        RegisterModule,
     ],
-    bootstrap   : [
-        AppComponent,
-    ],
+    bootstrap: [AppComponent],
 })
-export class AppModule
-{
-}
+export class AppModule {}

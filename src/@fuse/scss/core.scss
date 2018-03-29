@@ -5,7 +5,7 @@
 @import '~perfect-scrollbar/css/perfect-scrollbar';
 
 // Fuse
-@import "fuse";
+@import 'fuse';
 
 // Theming
 @include mat-core();
@@ -14,22 +14,22 @@
 @include angular-material-theme($theme);
 
 // Partials
-@import "partials/reset";
-@import "partials/normalize";
-@import "partials/scrollbars";
-@import "partials/helpers";
-@import "partials/global";
-@import "partials/icons";
-@import "partials/colors";
-@import "partials/material";
-@import "partials/angular-material-fix";
-@import "partials/typography";
-@import "partials/page-layouts";
-@import "partials/cards";
-@import "partials/navigation";
-@import "partials/forms";
-@import "partials/toolbar";
-@import "partials/print";
+@import 'partials/reset';
+@import 'partials/normalize';
+@import 'partials/scrollbars';
+@import 'partials/helpers';
+@import 'partials/global';
+@import 'partials/icons';
+@import 'partials/colors';
+@import 'partials/material';
+@import 'partials/angular-material-fix';
+@import 'partials/typography';
+@import 'partials/page-layouts';
+@import 'partials/cards';
+@import 'partials/navigation';
+@import 'partials/forms';
+@import 'partials/toolbar';
+@import 'partials/print';
 
 // Plugins
-@import "partials/plugins/plugins";
+@import 'partials/plugins/plugins';

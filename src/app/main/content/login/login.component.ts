@@ -3,21 +3,20 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { FuseConfigService } from '@fuse/services/config.service';
 import { fuseAnimations } from '@fuse/animations';
+import { AuthService } from '@fuse/services/auth.service';
 
 import { FuseTranslationLoaderService } from '@fuse/services/translation-loader.service';
-
 
 import { locale as english } from './i18n/en';
 import { locale as french } from './i18n/fr';
 
 @Component({
-    selector   : 'fuse-login',
+    selector: 'fuse-login',
     templateUrl: './login.component.html',
-    styleUrls  : ['./login.component.scss'],
-    animations : fuseAnimations,
+    styleUrls: ['./login.component.scss'],
+    animations: fuseAnimations,
 })
-export class FuseLoginComponent implements OnInit
-{
+export class FuseLoginComponent implements OnInit {
     loginForm: FormGroup;
     loginFormErrors: any;
 
@@ -25,27 +24,32 @@ export class FuseLoginComponent implements OnInit
         private fuseConfig: FuseConfigService,
         private formBuilder: FormBuilder,
         private fuseTranslationLoader: FuseTranslationLoaderService,
-    )
-    {
-      this.fuseTranslationLoader.loadTranslations(english, french);
-      this.fuseConfig.setConfig({
+        private authService: AuthService,
+    ) {
+        this.fuseTranslationLoader.loadTranslations(english, french);
+        this.fuseConfig.setConfig({
             layout: {
                 navigation: 'none',
-                toolbar   : 'none',
-                footer    : 'none',
+                toolbar: 'none',
+                footer: 'none',
             },
         });
 
         this.loginFormErrors = {
-            email   : {},
+            email: {},
             password: {},
         };
     }
 
-    ngOnInit()
-    {
+    onSubmit() {
+        const { email, password } = this.loginForm.value;
+        console.log('Submtin to auth service');
+        this.authService.login(email, password);
+    }
+
+    ngOnInit() {
         this.loginForm = this.formBuilder.group({
-            email   : ['', [Validators.required, Validators.email]],
+            email: ['', [Validators.required, Validators.email]],
             password: ['', Validators.required],
         });
 
@@ -54,12 +58,9 @@ export class FuseLoginComponent implements OnInit
         });
     }
 
-    onLoginFormValuesChanged()
-    {
-        for ( const field in this.loginFormErrors )
-        {
-            if ( !this.loginFormErrors.hasOwnProperty(field) )
-            {
+    onLoginFormValuesChanged() {
+        for (const field in this.loginFormErrors) {
+            if (!this.loginFormErrors.hasOwnProperty(field)) {
                 continue;
             }
 
@@ -69,8 +70,7 @@ export class FuseLoginComponent implements OnInit
             // Get the control
             const control = this.loginForm.get(field);
 
-            if ( control && control.dirty && !control.valid )
-            {
+            if (control && control.dirty && !control.valid) {
                 this.loginFormErrors[field] = control.errors;
             }
         }

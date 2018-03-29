@@ -1,11 +1,8 @@
 @import 'src/@fuse/scss/fuse';
 
 :host {
-
     @include media-breakpoint-down('sm') {
-
         #fuse-shortcuts {
-
             &.show-mobile-panel {
                 position: absolute;
                 top: 0;

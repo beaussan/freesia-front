@@ -4,13 +4,12 @@ import { FuseConfigService } from '../../../../services/config.service';
 import { Subscription } from 'rxjs/Subscription';
 
 @Component({
-    selector   : 'fuse-nav-horizontal-collapse',
+    selector: 'fuse-nav-horizontal-collapse',
     templateUrl: './nav-horizontal-collapse.component.html',
-    styleUrls  : ['./nav-horizontal-collapse.component.scss'],
-    animations : fuseAnimations,
+    styleUrls: ['./nav-horizontal-collapse.component.scss'],
+    animations: fuseAnimations,
 })
-export class FuseNavHorizontalCollapseComponent implements OnDestroy
-{
+export class FuseNavHorizontalCollapseComponent implements OnDestroy {
     onConfigChanged: Subscription;
     fuseSettings: any;
     isOpen = false;
@@ -19,32 +18,22 @@ export class FuseNavHorizontalCollapseComponent implements OnDestroy
     @Input() item: any;
 
     @HostListener('mouseenter')
-    open()
-    {
+    open() {
         this.isOpen = true;
     }
 
     @HostListener('mouseleave')
-    close()
-    {
+    close() {
         this.isOpen = false;
     }
 
-    constructor(
-        private fuseConfig: FuseConfigService,
-    )
-    {
-        this.onConfigChanged =
-            this.fuseConfig.onConfigChanged
-                .subscribe(
-                    (newSettings) => {
-                        this.fuseSettings = newSettings;
-                    },
-                );
+    constructor(private fuseConfig: FuseConfigService) {
+        this.onConfigChanged = this.fuseConfig.onConfigChanged.subscribe(newSettings => {
+            this.fuseSettings = newSettings;
+        });
     }
 
-    ngOnDestroy()
-    {
+    ngOnDestroy() {
         this.onConfigChanged.unsubscribe();
     }
 }

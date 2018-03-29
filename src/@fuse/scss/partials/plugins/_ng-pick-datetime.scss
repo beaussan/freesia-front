@@ -11,9 +11,9 @@
 }*/
 
 owl-date-time {
-
-    [class^="icon-"]:before, [class*=" icon-"]:before {
-        font-family: "Material Icons";
+    [class^='icon-']:before,
+    [class*=' icon-']:before {
+        font-family: 'Material Icons';
         font-style: normal;
         font-weight: normal;
         speak: none;
@@ -51,10 +51,10 @@ owl-date-time {
         content: 'chevron_right';
     }
 
-    $white: #FFFFFF;
+    $white: #ffffff;
     $black: #000000;
-    $grey: #DDDDDD;
-    $blue: #0070BA;
+    $grey: #dddddd;
+    $blue: #0070ba;
 
     .owl-widget,
     .owl-widget * {
@@ -66,7 +66,6 @@ owl-date-time {
     }
 
     .owl-state-focus {
-
     }
 
     .owl-corner-all {
@@ -79,7 +78,7 @@ owl-date-time {
     }
 
     .owl-state-default {
-        background: #FFFFFF;
+        background: #ffffff;
         color: rgba(0, 0, 0, 0.87);
     }
 
@@ -143,8 +142,8 @@ owl-date-time {
 
     .owl-dateTime-dialogHeader {
         height: 2.5em;
-        padding: .25em;
-        background-color: rgba(0, 0, 0, .1);
+        padding: 0.25em;
+        background-color: rgba(0, 0, 0, 0.1);
         overflow-y: auto;
     }
 
@@ -153,7 +152,6 @@ owl-date-time {
     }
 
     .owl-calendar-control {
-
         .owl-calendar-controlNav {
             display: flex;
             align-items: center;
@@ -164,7 +162,7 @@ owl-date-time {
                 display: flex;
 
                 &:before {
-                    font-family: "Material Icons";
+                    font-family: 'Material Icons';
                     position: relative !important;
                     right: 0 !important;
                     top: 0 !important;
@@ -175,18 +173,17 @@ owl-date-time {
                     min-width: 20px !important;
                     min-height: 20px !important;
                     line-height: 20px !important;
-                    content: "chevron_left";
+                    content: 'chevron_left';
                     color: rgba(0, 0, 0, 0.54);
                 }
             }
 
             .nav-next:before {
-                content: "chevron_right";
+                content: 'chevron_right';
             }
         }
 
         .owl-calendar-controlContent {
-
             .month-control,
             .year-control {
                 font-size: 14px;
@@ -204,20 +201,18 @@ owl-date-time {
     }
 
     .owl-calendar {
-
         table {
             border-spacing: 0 !important;
         }
 
         tbody td {
-
             &.owl-calendar-selected {
                 background-color: $blue;
                 color: $white;
             }
 
             &.owl-calendar-invalid {
-                color: #ACACAC;
+                color: #acacac;
             }
 
             &.owl-calendar-outFocus {
@@ -237,7 +232,6 @@ owl-date-time {
 
     .owl-years,
     .owl-months {
-
         td.owl-year,
         td.owl-month {
             padding: 0;
@@ -263,7 +257,6 @@ owl-date-time {
     }
 
     .owl-weekdays {
-
         th.owl-weekday {
             height: 32px;
             line-height: 32px;
@@ -275,7 +268,6 @@ owl-date-time {
     }
 
     .owl-days {
-
         td.owl-day {
             height: 32px;
             width: 32px;
@@ -290,8 +282,8 @@ owl-date-time {
                 position: absolute;
                 right: 2px;
                 top: 2px;
-                border-top: .5em solid lighten($blue, 20%);
-                border-left: .5em solid transparent;
+                border-top: 0.5em solid lighten($blue, 20%);
+                border-left: 0.5em solid transparent;
             }
         }
     }
@@ -317,7 +309,7 @@ owl-date-time {
         }
 
         .owl-meridian-btn {
-            font-size: .8em;
+            font-size: 0.8em;
             color: $blue;
             background-image: none;
             background-color: transparent;

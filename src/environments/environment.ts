@@ -5,5 +5,6 @@
 
 export const environment = {
     production: false,
-    hmr       : false,
+    graphqlUrl: 'http://localhost:3000/graphql',
+    hmr: false,
 };

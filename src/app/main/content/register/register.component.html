@@ -1,0 +1,72 @@
+<div id="register" fxLayout="column" fusePerfectScrollbar>
+
+    <div id="register-form-wrapper" fxLayout="column" fxLayoutAlign="center center">
+
+        <div id="register-form" *fuseIfOnDom [@animate]="{value:'*',params:{duration:'300ms',y:'100px'}}">
+
+            <div class="logo">
+                <img src="assets/images/logos/fuse.svg">
+            </div>
+
+            <div class="title" [translate]="'REGISTER.TITLE'">CREATE AN ACCOUNT</div>
+
+            <form name="registerForm" [formGroup]="registerForm" novalidate>
+
+                <mat-form-field>
+                    <input matInput placeholder="{{ 'FORM.FIRSTNAME.PLACEHOLDER' | translate }}" formControlName="firstname">
+                    <mat-error *ngIf="registerFormErrors.firstname.required" [translate]="'FORM.FIRSTNAME.REQUIRED'">
+                        Fristname is required
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input matInput placeholder="{{ 'FORM.LASTNAME.PLACEHOLDER' | translate }}" formControlName="lastname">
+                    <mat-error *ngIf="registerFormErrors.lastname.required" [translate]="'FORM.LASTNAME.REQUIRED'">
+                        Lastname is required
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input matInput placeholder="{{ 'FORM.EMAIL.PLACEHOLDER' | translate }}" formControlName="email">
+                    <mat-error *ngIf="registerFormErrors.email.required" [translate]="'FORM.EMAIL.REQUIRED'">
+                        Email is required
+                    </mat-error>
+                    <mat-error *ngIf="!registerFormErrors.email.required && registerFormErrors.email.email" [translate]="'FORM.EMAIL.VALID'">
+                        Please enter a valid email address
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input matInput type="password" placeholder="{{ 'FORM.PASSWORD.PLACEHOLDER' | translate }}" formControlName="password">
+                    <mat-error *ngIf="registerFormErrors.password.required" [translate]="'FORM.PASSWORD.REQUIRED'">
+                        Password is required
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input matInput type="password" placeholder="{{ 'FORM.PASSWORDMATCH.PLACEHOLDER' | translate }}" formControlName="passwordConfirm">
+                    <mat-error *ngIf="registerFormErrors.passwordConfirm.required"  [translate]="'FORM.PASSWORDMATCH.REQUIRED'">
+                        Password confirmation is required
+                    </mat-error>
+                    <mat-error *ngIf="registerFormErrors.passwordConfirm.passwordsNotMatch" [translate]="'FORM.PASSWORDMATCH.NOTMATCH'">
+                        Passwords must match
+                    </mat-error>
+                </mat-form-field>
+
+                <button mat-raised-button color="accent" class="submit-button" aria-label="CREATE AN ACCOUNT"
+                        [disabled]="registerForm.invalid"  (click)="onSubmit()" >
+                        {{ 'REGISTER.REGISTER_BUTTON' | translate }}
+                </button>
+
+            </form>
+
+            <div class="register" fxLayout="column" fxLayoutAlign="center center">
+                <span class="text" [translate]="'REGISTER.ALREADY_HAVE_ACCOUNT'">Already have an account?</span>
+                <a class="link" [routerLink]="'/login'" [translate]="'REGISTER.LOGIN'">Login</a>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

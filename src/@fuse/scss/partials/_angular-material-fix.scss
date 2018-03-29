@@ -1,6 +1,5 @@
 // Fix: "Icon button ripple radius is not correct on Edge & Safari"
 .mat-icon-button {
-
     .mat-button-ripple {
         border-radius: 50%;
     }
@@ -31,9 +30,7 @@
 
 // Fix: "Some idiots using table-cell and inline-table in mat-select"
 .mat-form-field {
-
     &.mat-form-field-type-mat-select {
-
         .mat-input-infix {
             display: inline-flex;
             width: auto;
@@ -60,9 +57,7 @@
 // Fix: "Stepper icons are broken due to Fuse's icon helpers"
 mat-horizontal-stepper,
 mat-vertical-stepper {
-
     mat-step-header {
-
         mat-icon {
             height: 16px !important;
             width: 16px !important;

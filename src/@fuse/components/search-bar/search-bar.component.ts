@@ -4,46 +4,34 @@ import { Subscription } from 'rxjs/Subscription';
 import { FuseConfigService } from '@fuse/services/config.service';
 
 @Component({
-    selector   : 'fuse-search-bar',
+    selector: 'fuse-search-bar',
     templateUrl: './search-bar.component.html',
-    styleUrls  : ['./search-bar.component.scss'],
+    styleUrls: ['./search-bar.component.scss'],
 })
-export class FuseSearchBarComponent
-{
+export class FuseSearchBarComponent {
     collapsed: boolean;
     toolbarColor: string;
     @Output() onInput: EventEmitter<any> = new EventEmitter();
     onConfigChanged: Subscription;
 
-    constructor(
-        private fuseConfig: FuseConfigService,
-    )
-    {
+    constructor(private fuseConfig: FuseConfigService) {
         this.collapsed = true;
-        this.onConfigChanged =
-            this.fuseConfig.onConfigChanged
-                .subscribe(
-                    (newSettings) => {
-                        this.toolbarColor = newSettings.colorClasses.toolbar;
-                    },
-                );
+        this.onConfigChanged = this.fuseConfig.onConfigChanged.subscribe(newSettings => {
+            this.toolbarColor = newSettings.colorClasses.toolbar;
+        });
     }
 
-    collapse()
-    {
+    collapse() {
         this.collapsed = true;
     }
 
-    expand()
-    {
+    expand() {
         this.collapsed = false;
     }
 
-    search(event)
-    {
+    search(event) {
         const value = event.target.value;
 
         this.onInput.emit(value);
     }
-
 }

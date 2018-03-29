@@ -5,28 +5,27 @@ import { Platform } from '@angular/cdk/platform';
 
 // Define the default config
 const DEFAULT_CONFIG = {
-    layout          : {
-        navigation      : 'left', // 'right', 'left', 'top', 'none'
+    layout: {
+        navigation: 'left', // 'right', 'left', 'top', 'none'
         navigationFolded: false, // true, false
-        toolbar         : 'below', // 'above', 'below', 'none'
-        footer          : 'below', // 'above', 'below', 'none'
-        mode            : 'fullwidth', // 'boxed', 'fullwidth'
+        toolbar: 'below', // 'above', 'below', 'none'
+        footer: 'below', // 'above', 'below', 'none'
+        mode: 'fullwidth', // 'boxed', 'fullwidth'
     },
-    colorClasses    : {
+    colorClasses: {
         toolbar: 'mat-white-500-bg',
-        navbar : 'mat-fuse-dark-700-bg',
-        footer : 'mat-fuse-dark-900-bg',
+        navbar: 'mat-fuse-dark-700-bg',
+        footer: 'mat-fuse-dark-900-bg',
     },
     customScrollbars: true,
-    routerAnimation : 'fadeIn', // fadeIn, slideUp, slideDown, slideRight, slideLeft, none
+    routerAnimation: 'fadeIn', // fadeIn, slideUp, slideDown, slideRight, slideLeft, none
 };
 
 // Create the injection token for the custom config
 export const FUSE_CONFIG = new InjectionToken('fuseCustomConfig');
 
 @Injectable()
-export class FuseConfigService
-{
+export class FuseConfigService {
     config: any;
     defaultConfig: any;
 
@@ -42,43 +41,38 @@ export class FuseConfigService
     constructor(
         private router: Router,
         public platform: Platform,
-        @Inject(FUSE_CONFIG) @Optional() config,
-    )
-    {
+        @Inject(FUSE_CONFIG)
+        @Optional()
+        config,
+    ) {
         // Set the default settings from the constant
         this.defaultConfig = DEFAULT_CONFIG;
 
         // If custom config provided with forRoot,
         // use them as default config...
-        if ( config )
-        {
+        if (config) {
             this.defaultConfig = config;
         }
 
         /**
          * Disable Custom Scrollbars if Browser is Mobile
          */
-        if ( this.platform.ANDROID || this.platform.IOS )
-        {
+        if (this.platform.ANDROID || this.platform.IOS) {
             this.defaultConfig.customScrollbars = false;
         }
 
         // Set the config from the default config
-        this.config = {...this.defaultConfig};
+        this.config = { ...this.defaultConfig };
 
         // Reload the default settings for the
         // layout on every navigation start
-        router.events.subscribe(
-            (event) => {
-                if ( event instanceof NavigationStart )
-                {
-                    this.setConfig({
-                            layout: this.defaultConfig.layout,
-                        },
-                    );
-                }
-            },
-        );
+        router.events.subscribe(event => {
+            if (event instanceof NavigationStart) {
+                this.setConfig({
+                    layout: this.defaultConfig.layout,
+                });
+            }
+        });
 
         // Create the behavior subject
         this.onConfigChanged = new BehaviorSubject(this.config);
@@ -89,14 +83,13 @@ export class FuseConfigService
      *
      * @param config
      */
-    setConfig(config): void
-    {
+    setConfig(config): void {
         // Set the config from the given object
         // Ugly, but works for now...
         this.config = {
             ...this.config,
             ...config,
-            layout     : {
+            layout: {
                 ...this.config.layout,
                 ...config.layout,
             },
@@ -110,4 +103,3 @@ export class FuseConfigService
         this.onConfigChanged.next(this.config);
     }
 }
-
