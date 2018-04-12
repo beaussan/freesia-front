@@ -31,8 +31,8 @@
             <button mat-button [matMenuTriggerFor]="userMenu"
                     class="user-button">
                 <div fxLayout="row" fxLayoutAlign="center center">
-                    <img class="avatar" src="assets/images/avatars/profile.jpg">
-                    <span class="username mr-12" fxHide fxShow.gt-sm>John Doe</span>
+                    <img class="avatar" [src]="'https://api.adorable.io/avatars/285/' + (currentUser ? currentUser.id : 0) + '.png'">
+                    <span class="username mr-12" fxHide fxShow.gt-sm>{{ currentUser && currentUser.firstName + ' ' + currentUser.lastName}}</span>
                     <mat-icon class="s-16" fxHide.xs>keyboard_arrow_down</mat-icon>
                 </div>
             </button>
@@ -49,7 +49,7 @@
                     <span>Inbox</span>
                 </button>
 
-                <button mat-menu-item class="">
+                <button mat-menu-item class="" (click)="disconect()">
                     <mat-icon>exit_to_app</mat-icon>
                     <span>Logout</span>
                 </button>

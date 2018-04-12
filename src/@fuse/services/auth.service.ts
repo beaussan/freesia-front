@@ -6,6 +6,7 @@ import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
 import { TranslateService } from '@ngx-translate/core';
 import { MatSnackBar } from '@angular/material';
+import { Router } from '@angular/router';
 
 const loginRequrest = gql`
     mutation loginRequrest($email: String!, $password: String!) {
@@ -52,6 +53,7 @@ export class AuthService {
         private apollo: Apollo,
         private snackBar: MatSnackBar,
         private translate: TranslateService,
+        private router: Router,
     ) {}
 
     private user: any;
@@ -80,8 +82,10 @@ export class AuthService {
     }
 
     disconect() {
+        console.log('DISCONECTING');
         localStorage.removeItem('token');
         this.user = undefined;
+        this.router.navigate(['/login']);
     }
 
     registerAndLogin(password, fristname, lastname, email) {
@@ -113,6 +117,8 @@ export class AuthService {
         localStorage.setItem('token', getToken.access_token);
         console.log('Got data ! ', getToken);
         this.user = getToken.user;
+        console.log('Redirecting to sample');
+        this.router.navigate(['/sample']);
     }
 
     private makeToastWithMessage(key: string) {

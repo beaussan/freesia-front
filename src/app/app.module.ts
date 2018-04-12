@@ -20,7 +20,7 @@ import { RegisterModule } from './main/content/register/register.module';
 const appRoutes: Routes = [
     {
         path: '**',
-        redirectTo: 'sample',
+        redirectTo: 'login',
     },
 ];
 
