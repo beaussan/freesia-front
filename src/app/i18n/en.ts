@@ -16,8 +16,8 @@ export const locale = {
                 PLACEHOLDER: 'Password',
             },
             FIRSTNAME: {
-                REQUIRED: 'Fristname is required',
-                PLACEHOLDER: 'Fristname',
+                REQUIRED: 'Firstname is required',
+                PLACEHOLDER: 'Firstname',
             },
             LASTNAME: {
                 REQUIRED: 'Lastname is required',
