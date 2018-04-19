@@ -5,9 +5,27 @@ export const locale = {
             TITLE: 'Edit profil',
             EDIT_SUBMIT: 'Edit submit',
             TAB: {
-                ONE: 'Lastname/Firstname',
-                TWO: 'Email',
-                THREE: 'Password',
+                ONE: {
+                    TITLE: 'Lastname/Firstname',
+                },
+                TWO: {
+                    TITLE: 'Email',
+                },
+                THREE: {
+                    TITLE: 'Password',
+                    NEW_PASSWORD: {
+                        TITLE: 'New password',
+                        REQUIRED: 'New password is required',
+                    },
+                    OLD_PASSWORD: {
+                        TITLE: 'Old password',
+                        REQUIRED: 'Old password is required',
+                    },
+                    PASSWORD_CONFIRM: {
+                        TITLE: 'Confirm password',
+                        REQUIRED: 'Confirmation password is required',
+                    },
+                },
             },
         },
     },
