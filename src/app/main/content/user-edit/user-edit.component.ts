@@ -26,8 +26,8 @@ export class UserEditComponent implements OnInit {
         this.fuseTranslationLoader.loadTranslations(english, french);
 
         this.formNameErrors = {
-            nom: {},
-            prenom: {},
+            firstName: {},
+            lastName: {},
         };
         this.formEmailErrors = {
             email: {},
@@ -42,8 +42,8 @@ export class UserEditComponent implements OnInit {
 
     ngOnInit() {
         this.formName = this.formBuilder.group({
-            nom: ['', Validators.required],
-            prenom: ['', Validators.required],
+            firstName: ['', Validators.required],
+            lastName: ['', Validators.required],
         });
 
         this.formName.valueChanges.subscribe(() => {
@@ -124,7 +124,7 @@ export class UserEditComponent implements OnInit {
     }
 
     editNameSubmit() {
-        const { nom, prenom } = this.formName.value;
+        const { firstName, lastName } = this.formName.value;
         console.log('Submtin to auth service');
     }
 
@@ -134,7 +134,7 @@ export class UserEditComponent implements OnInit {
     }
 
     editPasswordSubmit() {
-        const { oldPassword, newPassword, passwordConfirm } = this.formEmail.value;
+        const { oldPassword, newPassword, passwordConfirm } = this.formPassword.value;
         console.log('Submtin to auth service');
     }
 }

@@ -22,14 +22,14 @@
 
                                 <mat-form-field class="p-4" fxFlex="50">
                                     <input matInput placeholder="{{ 'FORM.LASTNAME.PLACEHOLDER' | translate }}" formControlName="lastName" required>
-                                    <mat-error *ngIf="formNameErrors.prenom.required" [translate]="'FORM.LASTNAME.REQUIRED'">
+                                    <mat-error *ngIf="formNameErrors.lastName.required" [translate]="'FORM.LASTNAME.REQUIRED'">
                                         Lastname is required
                                     </mat-error>
                                 </mat-form-field>
 
                                 <mat-form-field class="p-4" fxFlex="50">
                                     <input matInput placeholder="{{ 'FORM.FIRSTNAME.PLACEHOLDER' | translate }}" formControlName="firstName" required>
-                                    <mat-error *ngIf="formNameErrors.nom.required" [translate]="'FORM.FIRSTNAME.REQUIRED'">
+                                    <mat-error *ngIf="formNameErrors.firstName.required" [translate]="'FORM.FIRSTNAME.REQUIRED'">
                                         Firstname is required
                                     </mat-error>
                                 </mat-form-field>
@@ -110,8 +110,8 @@
                                 </mat-form-field>
 
                                 <mat-form-field class="p-4" fxFlex="50">
-                                    <input matInput type="password" placeholder="{{ 'USEREDIT.TAB.THREE.PASSWORD_CONFIRM.TITLE' | translate }}" formControlName="newPassword">
-                                    <mat-error *ngIf="formPasswordErrors.newPassword.required" [translate]="'USEREDIT.TAB.THREE.PASSWORD_CONFIRM.REQUIRED'">
+                                    <input matInput type="password" placeholder="{{ 'USEREDIT.TAB.THREE.PASSWORD_CONFIRM.TITLE' | translate }}" formControlName="passwordConfirm">
+                                    <mat-error *ngIf="formPasswordErrors.passwordConfirm.required" [translate]="'USEREDIT.TAB.THREE.PASSWORD_CONFIRM.REQUIRED'">
                                         Confirmation password is required
                                     </mat-error>
                                 </mat-form-field>
