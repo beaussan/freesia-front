@@ -19,6 +19,13 @@
 
                             <div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
 
+                                <mat-form-field class="p-4" fxFlex="50">
+                                    <input matInput placeholder="{{ 'FORM.FIRSTNAME.PLACEHOLDER' | translate }}" formControlName="firstName" required>
+                                    <mat-error *ngIf="formNameErrors.firstName.required" [translate]="'FORM.FIRSTNAME.REQUIRED'">
+                                        Firstname is required
+                                    </mat-error>
+                                </mat-form-field>
+
 
                                 <mat-form-field class="p-4" fxFlex="50">
                                     <input matInput placeholder="{{ 'FORM.LASTNAME.PLACEHOLDER' | translate }}" formControlName="lastName" required>
@@ -27,12 +34,6 @@
                                     </mat-error>
                                 </mat-form-field>
 
-                                <mat-form-field class="p-4" fxFlex="50">
-                                    <input matInput placeholder="{{ 'FORM.FIRSTNAME.PLACEHOLDER' | translate }}" formControlName="firstName" required>
-                                    <mat-error *ngIf="formNameErrors.firstName.required" [translate]="'FORM.FIRSTNAME.REQUIRED'">
-                                        Firstname is required
-                                    </mat-error>
-                                </mat-form-field>
 
                             </div>
 
@@ -96,8 +97,8 @@
                             <div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
 
                                 <mat-form-field class="p-4" fxFlex="50">
-                                    <input matInput type="password" placeholder="{{ 'USEREDIT.TAB.THREE.OLD_PASSWORD.TITLE' | translate }}" formControlName="lastPassword">
-                                    <mat-error *ngIf="formPasswordErrors.newPassword.required" [translate]="'USEREDIT.TAB.THREE.LAST_PASSWORD.REQUIRED'">
+                                    <input matInput type="password" placeholder="{{ 'USEREDIT.TAB.THREE.OLD_PASSWORD.TITLE' | translate }}" formControlName="oldPassword">
+                                    <mat-error *ngIf="formPasswordErrors.oldPassword.required" [translate]="'USEREDIT.TAB.THREE.OLD_PASSWORD.REQUIRED'">
                                         Old password is required
                                     </mat-error>
                                 </mat-form-field>

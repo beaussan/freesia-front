@@ -4,6 +4,7 @@ import { FuseConfigService } from '../../../../@fuse/services/config.service';
 import { locale as english } from './i18n/en';
 import { locale as french } from './i18n/fr';
 import { FuseTranslationLoaderService } from '../../../../@fuse/services/translation-loader.service';
+import { UserEditService } from './user-edit.service';
 
 @Component({
     selector: 'fuse-user-edit',
@@ -22,6 +23,7 @@ export class UserEditComponent implements OnInit {
         private fuseConfig: FuseConfigService,
         private formBuilder: FormBuilder,
         private fuseTranslationLoader: FuseTranslationLoaderService,
+        private userEditService: UserEditService,
     ) {
         this.fuseTranslationLoader.loadTranslations(english, french);
 
@@ -60,7 +62,7 @@ export class UserEditComponent implements OnInit {
         });
 
         this.formPassword = this.formBuilder.group({
-            lastPassword: ['', Validators.required],
+            oldPassword: ['', Validators.required],
             newPassword: ['', Validators.required],
             passwordConfirm: ['', Validators.required],
         });
@@ -125,16 +127,19 @@ export class UserEditComponent implements OnInit {
 
     editNameSubmit() {
         const { firstName, lastName } = this.formName.value;
-        console.log('Submtin to auth service');
+        this.userEditService.modifName(firstName, lastName);
+        console.log('Edit submit Name');
     }
 
     editEmailSubmit() {
         const { email, password } = this.formEmail.value;
-        console.log('Submtin to auth service');
+        this.userEditService.modifEmail(email, password);
+        console.log('Edit submit Email');
     }
 
     editPasswordSubmit() {
-        const { oldPassword, newPassword, passwordConfirm } = this.formPassword.value;
-        console.log('Submtin to auth service');
+        const { oldPassword, newPassword } = this.formPassword.value;
+        this.userEditService.modifPassword(oldPassword, newPassword);
+        console.log('Edit submit Password');
     }
 }
