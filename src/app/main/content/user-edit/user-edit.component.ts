@@ -1,29 +1,48 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FuseConfigService } from '../../../../@fuse/services/config.service';
 import { locale as english } from './i18n/en';
 import { locale as french } from './i18n/fr';
 import { FuseTranslationLoaderService } from '../../../../@fuse/services/translation-loader.service';
 import { UserEditService } from './user-edit.service';
+import gql from 'graphql-tag';
+import { Subscription } from 'rxjs/Subscription';
+import { Apollo } from 'apollo-angular';
+
+const CurrentUserForProfile = gql`
+    query CurrentUserForProfile {
+        getMe {
+            lastName
+            firstName
+            email
+            id
+        }
+    }
+`;
 
 @Component({
     selector: 'fuse-user-edit',
     templateUrl: './user-edit.component.html',
     styleUrls: ['./user-edit.component.scss'],
 })
-export class UserEditComponent implements OnInit {
+export class UserEditComponent implements OnInit, OnDestroy {
     formName: FormGroup; //Formulaire par Nom & Prénom
     formEmail: FormGroup; //Formulaire par Email
     formPassword: FormGroup; // Formulaire par Password
     formNameErrors: any;
     formEmailErrors: any;
     formPasswordErrors: any;
+    loading: boolean;
+    currentUser: any;
+
+    private querySubscription: Subscription;
 
     constructor(
         private fuseConfig: FuseConfigService,
         private formBuilder: FormBuilder,
         private fuseTranslationLoader: FuseTranslationLoaderService,
         private userEditService: UserEditService,
+        private apollo: Apollo,
     ) {
         this.fuseTranslationLoader.loadTranslations(english, french);
 
@@ -48,17 +67,9 @@ export class UserEditComponent implements OnInit {
             lastName: ['', Validators.required],
         });
 
-        this.formName.valueChanges.subscribe(() => {
-            this.onFormValuesChanged();
-        });
-
         this.formEmail = this.formBuilder.group({
             email: ['', Validators.required],
             password: ['', Validators.required],
-        });
-
-        this.formEmail.valueChanges.subscribe(() => {
-            this.onFormValuesChanged();
         });
 
         this.formPassword = this.formBuilder.group({
@@ -67,9 +78,42 @@ export class UserEditComponent implements OnInit {
             passwordConfirm: ['', Validators.required],
         });
 
+        //Récupération du nom et du prénom pour le remplissage auto
+        this.querySubscription = this.apollo
+            .watchQuery<any>({
+                query: CurrentUserForProfile,
+            })
+            .valueChanges.subscribe(({ data, loading }) => {
+                this.loading = loading;
+                this.currentUser = data.getMe;
+                console.log(data, loading);
+
+                if (this.currentUser) {
+                    this.formName = this.formBuilder.group({
+                        firstName: [this.currentUser.firstName, Validators.required],
+                        lastName: [this.currentUser.lastName, Validators.required],
+                    });
+                    this.formEmail = this.formBuilder.group({
+                        email: [this.currentUser.email, Validators.required],
+                    });
+                }
+            });
+
+        this.formName.valueChanges.subscribe(() => {
+            this.onFormValuesChanged();
+        });
+
+        this.formEmail.valueChanges.subscribe(() => {
+            this.onFormValuesChanged();
+        });
+
         this.formPassword.valueChanges.subscribe(() => {
             this.onFormValuesChanged();
         });
+    }
+
+    ngOnDestroy() {
+        this.querySubscription.unsubscribe();
     }
 
     onFormValuesChanged() {
@@ -125,6 +169,7 @@ export class UserEditComponent implements OnInit {
         }
     }
 
+    //Différents submit pour chaque formulaire
     editNameSubmit() {
         const { firstName, lastName } = this.formName.value;
         this.userEditService.modifName(firstName, lastName);
@@ -135,11 +180,22 @@ export class UserEditComponent implements OnInit {
         const { email, password } = this.formEmail.value;
         this.userEditService.modifEmail(email, password);
         console.log('Edit submit Email');
+
+        this.formEmail = this.formBuilder.group({
+            email: [this.currentUser.email, Validators.required],
+            password: ['', Validators.required],
+        });
     }
 
     editPasswordSubmit() {
         const { oldPassword, newPassword } = this.formPassword.value;
         this.userEditService.modifPassword(oldPassword, newPassword);
         console.log('Edit submit Password');
+
+        this.formPassword = this.formBuilder.group({
+            oldPassword: ['', Validators.required],
+            newPassword: ['', Validators.required],
+            passwordConfirm: ['', Validators.required],
+        });
     }
 }
