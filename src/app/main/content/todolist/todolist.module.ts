@@ -4,6 +4,7 @@ import { FuseSharedModule } from '@fuse/shared.module';
 import { RouterModule } from '@angular/router';
 import { TodolistComponent } from './todolist.component';
 import { TodoListItemComponent } from './todo-list-item/todo-list-item.component';
+import { TodoComponent } from './todo.component';
 
 const routes = [
     {
@@ -14,6 +15,6 @@ const routes = [
 
 @NgModule({
     imports: [RouterModule.forChild(routes), FuseSharedModule, CommonModule],
-    declarations: [TodolistComponent, TodoListItemComponent],
+    declarations: [TodolistComponent, TodoListItemComponent, TodoComponent],
 })
 export class TodolistModule {}
