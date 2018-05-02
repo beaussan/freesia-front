@@ -49,6 +49,7 @@
         "angular-in-memory-web-api": "0.5.3",
         "apollo-angular": "^1.0.1",
         "apollo-angular-link-http": "^1.0.2",
+        "apollo-angular-link-http-common": "1.0.0",
         "apollo-cache-inmemory": "^1.1.11",
         "apollo-client": "^2.2.7",
         "apollo-link-context": "^1.0.7",
