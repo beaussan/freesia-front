@@ -507,7 +507,7 @@ anymatch@^2.0.0:
     micromatch "^3.1.4"
     normalize-path "^2.1.1"
 
-apollo-angular-link-http-common@~1.0.0:
+apollo-angular-link-http-common@1.0.0, apollo-angular-link-http-common@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/apollo-angular-link-http-common/-/apollo-angular-link-http-common-1.0.0.tgz#bb15ab9844335531572b44f259c360c36c4bb1e7"
 

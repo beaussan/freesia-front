@@ -1,0 +1,7 @@
+<div fxLayout="row" fxLayoutAlign="space-around center">
+    {{ todo.text }}
+
+    <mat-checkbox class="m-2" [(ngModel)]="todo.isDone">isDone</mat-checkbox>
+    <mat-checkbox class="m-2" [(ngModel)]="todo.isArchived">isArchived</mat-checkbox>
+    <mat-checkbox class="m-2" [(ngModel)]="todo.isHighPriority">isHighPriority</mat-checkbox>
+</div>

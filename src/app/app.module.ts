@@ -17,6 +17,8 @@ import { FuseSampleModule } from './main/content/sample/sample.module';
 import { LoginModule } from './main/content/login/login.module';
 import { RegisterModule } from './main/content/register/register.module';
 import { UserEditModule } from './main/content/user-edit/user-edit.module';
+import { TodolistComponent } from './main/content/todolist/todolist.component';
+import { TodolistModule } from './main/content/todolist/todolist.module';
 
 const appRoutes: Routes = [
     {
@@ -42,6 +44,7 @@ const appRoutes: Routes = [
         LoginModule,
         RegisterModule,
         UserEditModule,
+        TodolistModule,
     ],
     bootstrap: [AppComponent],
 })

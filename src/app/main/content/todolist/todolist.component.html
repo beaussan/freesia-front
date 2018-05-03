@@ -1,0 +1,122 @@
+<div class="page-layout simple left-sidenav inner-sidenav" fusePerfectScrollbar>
+
+    <!-- HEADER -->
+    <div class="header mat-accent-bg p-24" fxLayout="row" fxLayoutAlign="start center">
+
+        <button mat-button class="mat-icon-button sidenav-toggle"
+                fuseMatSidenavToggler="simple-left-sidenav-3"
+                fxHide.gt-md>
+            <mat-icon>menu</mat-icon>
+        </button>
+
+        <div>
+            <h2>Todos</h2>
+        </div>
+
+    </div>
+    <!-- / HEADER -->
+
+    <mat-sidenav-container>
+
+        <!-- SIDENAV -->
+        <mat-sidenav class="sidenav" align="start" opened="true" mode="side"
+                     fuseMatSidenavHelper="simple-left-sidenav-3" mat-is-locked-open="gt-md">
+
+            <div class="sidenav-content" fusePerfectScrollbar>
+
+
+                <div class="nav">
+
+                    <div class="nav-item">
+
+                        <mat-form-field class="mat-list-item-content">
+                            <input matInput type="text" placeholder="Create todolist" [(ngModel)]="value"/>
+                            <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear"
+                                    (click)="onCreateTodoList()">
+                                <mat-icon class="nav-link-icon">add</mat-icon>
+                            </button>
+                        </mat-form-field>
+
+                    </div>
+
+
+                    <div class="nav-item" *ngFor="let todoList of todoLists">
+                        <a class="nav-link" matRipple [routerLink]="'/todolists/' + todoList.id"
+                           routerLinkActive="active">
+                            <span>{{ todoList.title }}</span>
+                        </a>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </mat-sidenav>
+        <!-- / SIDENAV -->
+
+        <!-- CENTER -->
+        <div class="center p-24" fusePerfectScrollbar>
+
+            <!-- CONTENT -->
+            <div class="content p-24 mat-elevation-z4 mat-white-bg">
+
+
+                <div *ngIf="!selectedTodoList" fxLayout="column" fxLayoutAlign="center center" fxFlexFill>
+                    <span class="no-todos-text  hint-text">There are no list selected !</span>
+                </div>
+
+                <div *ngIf="selectedTodoList" fxLayout="column" fxLayoutAlign="center center" fxFlexFill>
+
+                    <div>
+
+                        <mat-form-field class="mat-list-item-content">
+                            <input matInput type="text" placeholder="Create todolist" [(ngModel)]="valueNewTodo"/>
+                            <button mat-button *ngIf="valueNewTodo" matSuffix mat-icon-button aria-label="Clear"
+                                    (click)="onCreateTodoItem()">
+                                <mat-icon class="nav-link-icon">add</mat-icon>
+                            </button>
+                        </mat-form-field>
+
+                    </div>
+
+                    <div *ngIf="selectedTodoList && selectedTodoList.todoItems.length" class="full-width-todo">
+
+                        <app-todo-list-item
+                            *ngFor="let todo of selectedTodoList.todoItems"
+                            [todo]="todo"
+                            class="full-width-todo"
+                        >
+
+                        </app-todo-list-item>
+
+
+                    </div>
+
+                </div>
+                <!--
+             <div class="todo-list" [model]="todos" (out)="onDrop($event)" *fuseIfOnDom [@animateStagger]="{value:'50'}">
+
+                 <fuse-todo-list-item class="todo-list-item has-handle"
+                                      *ngFor="let todo of todos" [todo]="todo"
+                                      ngxDraggable
+                                      [model]="todo"
+                                      (click)="readTodo(todo.id)"
+                                      [ngClass]="{'current-todo':todo?.id == currentTodo?.id}"
+                                      matRipple
+                                      [@animate]="{value:'*',params:{y:'100%'}}">
+                 </fuse-todo-list-item>
+
+                </div>
+
+                 -->
+
+            </div>
+            <!-- / CONTENT -->
+
+        </div>
+        <!-- / CENTER -->
+
+    </mat-sidenav-container>
+
+</div>
