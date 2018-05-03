@@ -2,38 +2,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Apollo } from 'apollo-angular';
 import gql from 'graphql-tag';
 import { Subscription } from 'rxjs/Subscription';
-
-const createTodoList = gql`
-    mutation createTodoList($name: String!) {
-        createTodoList(name: $name) {
-            title
-            id
-            todoItems {
-                id
-                text
-                isDone
-                isArchived
-                isHighPriority
-            }
-        }
-    }
-`;
-
-const getAllTodoLists = gql`
-    query fetchTodoLists {
-        allTodoList {
-            title
-            id
-            todoItems {
-                id
-                text
-                isDone
-                isArchived
-                isHighPriority
-            }
-        }
-    }
-`;
+import { ActivatedRoute } from '@angular/router';
+import { createTodoItem, createTodoList, getAllTodoLists, getTodoListById } from './query';
 
 @Component({
     selector: 'app-todolist',
@@ -43,11 +13,43 @@ const getAllTodoLists = gql`
 export class TodolistComponent implements OnInit, OnDestroy {
     value = '';
 
+    valueNewTodo = '';
+
     todoLists = [];
 
-    private querySubscription: Subscription;
+    selectedTodoList = undefined;
 
-    constructor(private apollo: Apollo) {}
+    private querySubscription: Subscription;
+    private querySigngleTodoSubscription: Subscription;
+
+    constructor(private apollo: Apollo, private activeRoute: ActivatedRoute) {
+        this.activeRoute.paramMap.subscribe(params => {
+            if (params.get('todolistId')) {
+                if (this.querySigngleTodoSubscription) {
+                    this.querySigngleTodoSubscription.unsubscribe();
+                }
+
+                this.querySigngleTodoSubscription = this.apollo
+                    .watchQuery<any>({
+                        query: getTodoListById,
+                        variables: {
+                            id: params.get('todolistId'),
+                        },
+                    })
+                    .valueChanges.subscribe(({ data, loading }) => {
+                        this.selectedTodoList = data.todoListById;
+                    });
+            } else {
+                if (
+                    this.querySigngleTodoSubscription &&
+                    this.querySigngleTodoSubscription.unsubscribe
+                ) {
+                    this.querySigngleTodoSubscription.unsubscribe();
+                }
+                this.selectedTodoList = undefined;
+            }
+        });
+    }
 
     ngOnInit() {
         this.querySubscription = this.apollo
@@ -61,9 +63,37 @@ export class TodolistComponent implements OnInit, OnDestroy {
 
     ngOnDestroy() {
         this.querySubscription.unsubscribe();
+
+        if (this.querySigngleTodoSubscription && this.querySigngleTodoSubscription.unsubscribe) {
+            this.querySigngleTodoSubscription.unsubscribe();
+        }
     }
 
-    fetchTodoLists() {}
+    onCreateTodoItem() {
+        this.apollo
+            .mutate({
+                mutation: createTodoItem,
+                variables: {
+                    text: this.valueNewTodo,
+                    idList: this.selectedTodoList.id,
+                },
+                fetchPolicy: 'no-cache',
+                refetchQueries: [
+                    {
+                        query: getTodoListById,
+                        variables: { id: this.selectedTodoList.id },
+                    },
+                ],
+            })
+            .subscribe(
+                ({ data }) => {
+                    this.valueNewTodo = '';
+                },
+                error => {
+                    console.log('there was an error sending the query', error);
+                },
+            );
+    }
 
     onCreateTodoList() {
         this.apollo
@@ -80,8 +110,7 @@ export class TodolistComponent implements OnInit, OnDestroy {
                 ],
             })
             .subscribe(
-                ({ data }) => {
-                    console.log(data);
+                () => {
                     this.value = '';
                 },
                 error => {

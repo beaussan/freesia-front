@@ -12,11 +12,16 @@ import {
     MatTabsModule,
     MatFormFieldModule,
     MatInputModule,
+    MatCheckboxModule,
 } from '@angular/material';
 
 const routes = [
     {
         path: 'todolists',
+        component: TodolistComponent,
+    },
+    {
+        path: 'todolists/:todolistId',
         component: TodolistComponent,
     },
 ];
@@ -34,6 +39,7 @@ const routes = [
         MatFormFieldModule,
         MatInputModule,
         MatListModule,
+        MatCheckboxModule,
     ],
     declarations: [TodolistComponent, TodoListItemComponent],
 })
