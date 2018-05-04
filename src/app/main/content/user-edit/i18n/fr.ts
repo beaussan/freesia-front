@@ -5,10 +5,14 @@ export const locale = {
             TITLE: 'Modification de profil',
             EDIT_SUBMIT: 'Valider',
             TAB: {
-                ONE: 'Nom/Prénom',
-                TWO: 'Email',
+                ONE: {
+                    TITLE: 'Nom/Prénom',
+                },
+                TWO: {
+                    TITLE: 'Email',
+                },
                 THREE: {
-                    TITLE: 'Password',
+                    TITLE: 'Mot de passe',
                     NEW_PASSWORD: {
                         TITLE: 'Nouveau mot de passe',
                         REQUIRED: 'Le nouveau mot de passe est requis',
