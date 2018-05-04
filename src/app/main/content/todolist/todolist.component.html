@@ -85,6 +85,7 @@
                         <app-todo-list-item
                             *ngFor="let todo of selectedTodoList.todoItems"
                             [todo]="todo"
+                            [listId]="selectedTodoList.id"
                             class="full-width-todo"
                         >
 

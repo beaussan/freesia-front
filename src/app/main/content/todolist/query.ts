@@ -63,3 +63,51 @@ export const getTodoListById = gql`
         }
     }
 `;
+
+export const togglePriority = gql`
+    mutation togglePrioroty($id: Int!) {
+        toggleTodoPriority(itemId: $id) {
+            id
+            text
+            isDone
+            isArchived
+            isHighPriority
+            todoList {
+                title
+                id
+            }
+        }
+    }
+`;
+
+export const toggleDone = gql`
+    mutation toggleDone($id: Int!) {
+        toggleTodo(itemId: $id) {
+            id
+            text
+            isDone
+            isArchived
+            isHighPriority
+            todoList {
+                title
+                id
+            }
+        }
+    }
+`;
+
+export const toggleArchive = gql`
+    mutation togglePrioroty($id: Int!) {
+        archiveTodo(itemId: $id) {
+            id
+            text
+            isDone
+            isArchived
+            isHighPriority
+            todoList {
+                title
+                id
+            }
+        }
+    }
+`;
