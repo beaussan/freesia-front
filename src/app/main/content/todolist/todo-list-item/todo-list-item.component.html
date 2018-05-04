@@ -1,7 +1,17 @@
 <div fxLayout="row" fxLayoutAlign="space-around center">
-    {{ todo.text }}
 
-    <mat-checkbox class="m-2" (change)="onDoneToggle()" [ngModel]="todo.isDone">isDone</mat-checkbox>
-    <mat-checkbox class="m-2" (change)="onArchiveToggle()" [ngModel]="todo.isArchived">isArchived</mat-checkbox>
-    <mat-checkbox class="m-2" (change)="onPriorityToggle()" [ngModel]="todo.isHighPriority">isHighPriority</mat-checkbox>
+    <mat-checkbox class="m-2" (change)="onDoneToggle()" [ngModel]="todo.isDone"></mat-checkbox>
+
+    <span class="text">{{ todo.text }}</span>
+
+    <button mat-button class="mat-icon-button" (click)="onPriorityToggle()"
+            aria-label="Toggle star" fxHide.xs>
+        <mat-icon *ngIf="todo.isHighPriority">star</mat-icon>
+        <mat-icon *ngIf="!todo.isHighPriority">star_outline</mat-icon>
+    </button>
+
+    <button mat-button class="mat-icon-button" (click)="onArchiveToggle()" aria-label="Toggle delete">
+        <mat-icon *ngIf="todo.isArchived">delete_forever</mat-icon>
+        <mat-icon *ngIf="!todo.isArchived">delete</mat-icon>
+    </button>
 </div>

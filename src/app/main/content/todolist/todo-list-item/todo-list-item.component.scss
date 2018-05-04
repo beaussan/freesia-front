@@ -1,0 +1,18 @@
+:host {
+    display: block;
+    position: relative;
+    padding: 16px 16px 16px 24px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    text-transform: none;
+    cursor: pointer;
+    flex-shrink: 0;
+
+    &.isDone {
+        background: #eeeeee;
+
+        .text {
+            color: rgba(0, 0, 0, 0.54);
+            text-decoration: line-through;
+        }
+    }
+}

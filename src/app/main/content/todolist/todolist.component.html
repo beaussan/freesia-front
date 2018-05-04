@@ -70,6 +70,7 @@
 
                     <div>
 
+
                         <mat-form-field class="mat-list-item-content">
                             <input matInput type="text" placeholder="Create todolist" [(ngModel)]="valueNewTodo"/>
                             <button mat-button *ngIf="valueNewTodo" matSuffix mat-icon-button aria-label="Clear"
@@ -80,16 +81,18 @@
 
                     </div>
 
+
                     <div *ngIf="selectedTodoList && selectedTodoList.todoItems.length" class="full-width-todo">
 
                         <app-todo-list-item
                             *ngFor="let todo of selectedTodoList.todoItems"
                             [todo]="todo"
                             [listId]="selectedTodoList.id"
-                            class="full-width-todo"
+                            class="todo-list-item full-width-todo todo-list-item"
                         >
 
                         </app-todo-list-item>
+
 
 
                     </div>

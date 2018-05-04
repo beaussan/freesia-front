@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, HostBinding, Input, OnInit } from '@angular/core';
 import {
     toggleDone,
     togglePriority,
@@ -17,11 +17,13 @@ import { Apollo } from 'apollo-angular';
 export class TodoListItemComponent implements OnInit {
     @Input() todo: any;
     @Input() listId: any;
+    @HostBinding('class.isDone') completed: boolean;
 
     constructor(private apollo: Apollo) {}
 
     ngOnInit() {
         console.log(this.todo);
+        this.completed = this.todo.isDone;
     }
 
     onDoneToggle() {
@@ -56,6 +58,7 @@ export class TodoListItemComponent implements OnInit {
             .subscribe(
                 ({ data }) => {
                     console.log(data);
+                    this.completed = this.todo.isDone;
                 },
                 error => {
                     console.log('there was an error sending the query', error);
